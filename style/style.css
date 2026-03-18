@@ -1,7 +1,79 @@
+:root {
+  --clr-primary-bg: #e76c1f;
+  --clr-secondary-bg: #ffffff;
+  --clr-teritiary-bg: #fdeadc;
+  --clr-quaternary-bg: #facaac;
+  --clr-primary-txt: #363534;
+}
+
 h2 {
   font-family: 'Palanquin';
 }
 
 h1 {
   font-family: 'Palanquin Dark';
+}
+
+header {
+  height: 80px;
+  background-color: var(--clr-primary-bg);
+  display: flex;
+
+  width: 100%;
+}
+
+.header_content {
+  max-width: 1440px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  padding-inline: 40px;
+}
+
+header img {
+  height: 35px;
+}
+
+.main_img_container {
+  position: relative;
+  max-width: 100%;
+}
+
+.main_img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.main_img_logo {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 200px;
+}
+
+.main_content {
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand_name {
+  color: var(--clr-primary-txt);
+}
+
+.highlight {
+  color: var(--clr-primary-bg);
+}
+
+.slogan {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }

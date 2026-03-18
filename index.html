@@ -15,9 +15,42 @@
     />
     <title>Lieferdudu</title>
   </head>
-  <h1>Your Basket</h1>
-  <h2>Your Basket</h2>
-  <body onload="onload()"></body>
+
+  <body onload="onload()">
+    <header>
+      <div class="header_content">
+        <img src="./assets/logos/main_logo.svg" alt="Hauptlogo der Seite" />
+        <img
+          src="./assets/icons/menu_placeholder_icon.svg"
+          alt="Icon für Menü"
+        />
+      </div>
+    </header>
+    <section class="main_section">
+      <div class="main_img_container">
+        <img
+          class="main_img"
+          src="./assets/img/header_img.jpg"
+          alt="Hauptfoto der Seite"
+        />
+        <img
+          class="main_img_logo"
+          src="./assets/logos/logo_burger.svg"
+          alt="Logo Burger"
+        />
+      </div>
+      <div class="main_content">
+        <div class="slogan">
+          <h1 class="brand_name"><span class="highlight">Burger</span>House</h1>
+          <img src="./assets/icons/star_icon.svg" alt="" />
+        </div>
+        <p>The best of Burgers, Pizza, and Greens, all in one greate place.</p>
+      </div>
+    </section>
+    <section class="order_section">
+      <div class="food_content"></div>
+    </section>
+  </body>
   <script src="./scripts/db.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/template.js"></script>

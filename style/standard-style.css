@@ -1,3 +1,11 @@
+:root {
+  --clr-primary-bg: #e76c1f;
+  --clr-secondary-bg: #ffffff;
+  --clr-teritiary-bg: #fdeadc;
+  --clr-quaternary-bg: #facaac;
+  --clr-primary-txt: #363534;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +16,18 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  min-height: 100vh;
+  font-family: 'Palanquin';
+  color: var(--clr-primary-txt);
+  display: flex;
+  flex-direction: column;
+}
 a {
   text-decoration: none;
+}
+
+p {
+  font-size: 24px;
+  font-weight: bold;
 }
