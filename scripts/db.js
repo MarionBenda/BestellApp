@@ -28,7 +28,7 @@ let MY_DISHES = [
     description:
       'Der Burger mit Pfiff, saftiges Rindfleisch mit Chilli verfeinert, Tomate, Ruccola,Chillicheedar. Extra freurig',
   },
-  //Pizza
+  // Pizza
   {
     image: './assets/img/pizza/pizza_ham_corn.jpg',
     name: 'Pizza Cardinale',
@@ -37,7 +37,7 @@ let MY_DISHES = [
       'Saftiger Schinken, würzige Tomatensauce, mit Mais und Mozarella',
   },
   {
-    image: './assets/img/pizza/pizza_magaritha.jpg',
+    image: './assets/img/pizza/pizza_margaritha.jpg',
     name: 'Pizza Magaritha',
     price: 10.9,
     description: 'Würzige Tomatensauce mit Morzarella',
@@ -61,41 +61,28 @@ let MY_DISHES = [
     description:
       'Tomatensauce, Morzarella, mit ganzen Cocktailtoamten, Basilikum und  mit Balsamico verfeinert',
   },
-  {
-    name: 'Spicy special Burger',
-    price: 12.99,
-    description: 'fff',
-  },
-  {
-    name: 'Double Burger',
-    price: 12.99,
 
-    description: 'fffff',
-  },
-  {
-    name: 'Spicy special Burger',
-    price: 12.99,
-    description: 'fff',
-  },
   //Salate
   {
     image: './assets/img/salad/chicken_salad.jpg',
-    name: 'Spicy special Burger',
+    name: 'Chicken Salad',
     price: 12.99,
-    description: 'fff',
+    description:
+      'Saftig gegrilltes Hühnerfilet mit gemischten Salat, Hausdressing und mit Parmesan verfeinert',
   },
   {
     image: './assets/img/salad/cucumber_salad.png',
-    name: 'Double Burger',
-    price: 12.99,
-
-    description: 'fffff',
+    name: 'Gurken Salat',
+    price: 7.99,
+    description:
+      'Würziger Gurkensalat mit Zwiebel und Chilli verfeinert, Essig und Öl Dressing',
   },
   {
     image: './assets/img/salad/greek_salad.png',
-    name: 'Spicy special Burger',
-    price: 12.99,
-    description: 'fff',
+    name: 'Griechischer Salat',
+    price: 10.99,
+    description:
+      'Gemischter Salat mit Zwiebeln, Oliven und Schafskäse garniert, Essig und Öl Dressing',
   },
   //side dishes
   {
