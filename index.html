@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/assets.css" />
     <link rel="stylesheet" href="./style/fonts.css" />
+    <script src="./scripts/db.js"></script>
+
+    <script src="./scripts/template.js"></script>
 
     <link
       rel="icon"
@@ -16,8 +19,8 @@
     <title>Lieferdudu</title>
   </head>
 
-  <body onload="onload()">
-    <header>
+  <body onload="init()">
+    <header class="header_main">
       <div class="header_content">
         <img src="./assets/logos/main_logo.svg" alt="Hauptlogo der Seite" />
         <img
@@ -48,10 +51,18 @@
       </div>
     </section>
     <section class="order_section">
-      <div class="food_content"></div>
+      <div class="food_content_headline"></div>
+      <header class="section_header container container_mobile">
+        <img
+          class="header_icon"
+          src="./assets/icons/burger_icon.svg"
+          alt="Burger Icon"
+        />
+
+        <h2 class="section_headline">Burger</h2>
+      </header>
+      <div id="dishes"></div>
     </section>
   </body>
-  <script src="./scripts/db.js"></script>
   <script src="./scripts/script.js"></script>
-  <script src="./scripts/template.js"></script>
 </html>

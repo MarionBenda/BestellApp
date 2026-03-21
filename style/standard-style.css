@@ -31,3 +31,10 @@ p {
   font-size: 24px;
   font-weight: bold;
 }
+.order_section {
+  background-color: var(--clr-secondary-bg);
+}
+
+h2 {
+  color: #ffffff;
+}

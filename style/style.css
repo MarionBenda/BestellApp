@@ -8,17 +8,17 @@
 
 h2 {
   font-family: 'Palanquin';
+  /* font-size: 40px; */
 }
 
 h1 {
   font-family: 'Palanquin Dark';
 }
 
-header {
+.header_main {
   height: 80px;
   background-color: var(--clr-primary-bg);
   display: flex;
-
   width: 100%;
 }
 
@@ -76,4 +76,40 @@ header img {
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+.order_section {
+  position: relative;
+  width: 100%;
+}
+
+.food_content_headline {
+  height: 44px;
+  width: 100%;
+  background-color: #e76c1f;
+  position: absolute;
+}
+
+.section_header {
+  position: relative;
+  padding-left: 150px;
+}
+
+.section_headline {
+  padding-left: 100px;
+}
+.header_icon {
+  position: absolute;
+  height: 90px;
+  bottom: 0;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container_mobile {
+  padding-inline: 16px;
 }
