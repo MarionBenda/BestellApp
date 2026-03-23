@@ -33,22 +33,77 @@ p {
 }
 .order_section {
   background-color: var(--clr-secondary-bg);
+  flex: 1;
 }
 
 h2 {
   color: #ffffff;
 }
 
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.dishes {
+  padding: 30px 16px 0;
+  max-width: 1440px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  flex: 1;
+}
+
 .burger-card {
   display: flex;
   gap: 10px;
-  padding: 5px 40px;
+  padding: 5px 5px;
   background-color: var(--clr-teritiary-bg);
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
-.dishes img {
+.burger_img {
   height: 121px;
-  width: 207px;
+  width: 210px;
   object-fit: cover;
   border-radius: 12px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 3px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu_description {
+  font-size: 16px;
+}
+
+.price {
+  font-size: 24px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.basket {
+  background-color: var(--clr-primary-txt);
+  border-radius: 12px;
+  width: 350px;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+}
+
+.basket h2 {
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
 }

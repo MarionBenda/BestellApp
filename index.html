@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/assets.css" />
     <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/basket.css" />
     <script src="./scripts/db.js"></script>
 
     <script src="./scripts/template.js"></script>
@@ -45,7 +46,14 @@
       <div class="main_content">
         <div class="slogan">
           <h1 class="brand_name"><span class="highlight">Burger</span>House</h1>
-          <img src="./assets/icons/star_icon.svg" alt="Stern Bewertungs Icon" />
+          <div class="rating_container">
+            <img
+              src="./assets/icons/star_icon.svg"
+              alt="Stern Bewertungs Icon"
+            />
+            <span class="rating_value" id="ratingValue"></span>
+            <span class="rating_count" id="ratingCount">(215)</span>
+          </div>
         </div>
         <p>The best of Burgers, Pizza, and Greens, all in one greate place.</p>
       </div>
@@ -61,9 +69,77 @@
 
         <h2 class="section_headline">Burger</h2>
       </header>
-
-      <div class="dishes" id="dishes"></div>
+      <div class="menu_content">
+        <div class="dishes" id="burger"></div>
+      </div>
     </section>
+    <section class="order_section">
+      <div class="food_content_headline"></div>
+      <header class="section_header container container_mobile">
+        <img
+          class="header_icon"
+          src="./assets/logos/pizza_logo.svg"
+          alt="Burger Icon"
+        />
+
+        <h2 class="section_headline">Pizza</h2>
+      </header>
+      <div class="menu_content">
+        <div class="dishes" id="pizza"></div>
+      </div>
+    </section>
+    <section class="order_section">
+      <div class="food_content_headline"></div>
+      <header class="section_header container container_mobile">
+        <img
+          class="header_icon"
+          src="./assets/logos/salad_logo.svg"
+          alt="Burger Icon"
+        />
+
+        <h2 class="section_headline">Salate</h2>
+      </header>
+      <div class="menu_content">
+        <div class="dishes" id="salad"></div>
+      </div>
+    </section>
+    <section class="order_section">
+      <div class="food_content_headline"></div>
+      <header class="section_header container container_mobile">
+        <img
+          class="header_icon"
+          src="./assets/logos/potato-icon.png"
+          alt="Burger Icon"
+        />
+
+        <h2 class="section_headline">Beilagen</h2>
+      </header>
+      <div class="menu_content">
+        <div class="dishes" id="sideDishes"></div>
+      </div>
+    </section>
+    <section class="order_section">
+      <div class="food_content_headline"></div>
+      <header class="section_header container container_mobile">
+        <img
+          class="header_icon"
+          src="./assets/logos/macarons-color-icon.png"
+          alt="Burger Icon"
+        />
+
+        <h2 class="section_headline">Desserts</h2>
+      </header>
+      <div class="menu_content">
+        <div class="dishes" id="desserts"></div>
+      </div>
+    </section>
+    <aside class="basket">
+      <h2>Warenkorb</h2>
+      <div id="basket_content"></div>
+      <button class="basket_button">
+        <span>Buy Know</span>
+      </button>
+    </aside>
   </body>
   <script src="./scripts/script.js"></script>
 </html>
