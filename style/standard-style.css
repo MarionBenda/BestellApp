@@ -46,7 +46,7 @@ h3 {
 }
 
 .dishes {
-  padding: 30px 16px 0;
+  padding: 30px 16px 40px;
   max-width: 1440px;
   width: 100%;
   box-sizing: border-box;
@@ -62,6 +62,7 @@ h3 {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .burger_img {
@@ -76,6 +77,8 @@ h3 {
   flex-direction: column;
   flex: 1;
   gap: 3px;
+  position: relative;
+  padding-bottom: 40px;
 }
 
 .card-header {
@@ -102,8 +105,26 @@ h3 {
   flex-direction: column;
 }
 
-.basket h2 {
-  font-size: 32px;
+.basket_content {
   display: flex;
-  justify-content: center;
+  max-width: 100%;
+  gap: 10px;
+}
+
+.basket_counter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.basket_total {
+  display: flex;
+  color: #ffffff;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.quantity-group {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Abstand zwischen Löschen und +/- */
 }

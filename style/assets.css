@@ -12,3 +12,54 @@
   border-radius: 40px;
   padding: 10px 20px;
 }
+
+.add_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  right: 5px;
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  cursor: pointer;
+  bottom: 5px;
+  position: absolute;
+}
+
+.add_btn:hover {
+  color: #e76c1f;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 5px #ff9900,
+    0 0 5px #ff9900,
+    0 0 5px #ff6600,
+    0 0 10px #ff6600;
+  transform: scale(1);
+}
+
+.delete-btn {
+  background-color: #ffffff;
+  border: none;
+  background-image: url('../assets/icons/delete_icon.svg');
+  cursor: pointer;
+  transition: background-image 0.2s ease-in-out;
+  height: 18px;
+  width: 16px;
+}
+
+.delete-btn:hover {
+  background-image: url('../assets/icons/delete_icon_press.svg');
+}
+
+.remove_btn {
+  border: none;
+  font-size: 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.remove_btn:hover {
+  color: var(--clr-primary-bg);
+}

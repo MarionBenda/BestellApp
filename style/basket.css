@@ -7,10 +7,62 @@
 }
 
 .basket {
-  width: 350px;
+  display: flex;
+  width: 400px;
   height: 800px;
   position: sticky;
   position: fixed;
   right: 0;
   top: 30%;
+  padding: 10px 10px;
+}
+
+.basket-item {
+  background-color: white;
+  border-radius: 12px;
+  padding: 5px 30px;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.basket-item-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.basket-item-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  width: 100%;
+  padding: 0;
+}
+
+.quantity-group,
+.quantity-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.basket-item-price {
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.quantity-select span {
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  min-width: 20px;
+  text-align: center;
 }
