@@ -134,7 +134,26 @@
       </div>
     </section>
     <aside class="basket">
-      <h2>Warenkorb</h2>
+      <div class="basket-header-row">
+        <div class="method-switch">
+          <button
+            id="btn-delivery"
+            class="method-btn active"
+            onclick="setDelivery(true)"
+          >
+            Lieferung
+          </button>
+          <button
+            id="btn-pickup"
+            class="method-btn"
+            onclick="setDelivery(false)"
+          >
+            Abholung
+          </button>
+        </div>
+        <h2>Warenkorb</h2>
+      </div>
+
       <div id="basket_content"></div>
       <div id="basket_items" class="basket_content"></div>
       <div id="basket_total" class="basket_total"></div>

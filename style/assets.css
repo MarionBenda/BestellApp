@@ -63,3 +63,22 @@
 .remove_btn:hover {
   color: var(--clr-primary-bg);
 }
+
+.method-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.method-btn:hover {
+  color: #e76c1f;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 5px #ff9900,
+    0 0 5px #ff9900,
+    0 0 5px #ff6600,
+    0 0 10px #ff6600;
+  transform: scale(1);
+}

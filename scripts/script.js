@@ -1,6 +1,9 @@
 const rating = 4.5;
 const count = 215;
 
+let isDelivery = true;
+const DELIVERY_FEE = 4.99;
+
 document.getElementById('ratingValue').textContent = rating.toFixed(1);
 document.getElementById('ratingCount').textContent = `(${count})`;
 
@@ -139,28 +142,6 @@ function addToBasket(name, price) {
   updateBasket();
 }
 
-function updateBasket() {
-  let basketContainer = document.getElementById('basket_items');
-  let totalContainer = document.getElementById('basket_total');
-  basketContainer.innerHTML = '';
-
-  let total = 0;
-
-  basket.forEach((item, index) => {
-    let itemTotal = item.price * item.amount;
-    total += itemTotal;
-
-    basketContainer.innerHTML += `
-            <div class="basket-item">
-                <span>${item.amount}x ${item.name}</span>
-                <span>${itemTotal.toFixed(2).replace('.', ',')} €</span>
-            </div>
-        `;
-  });
-
-  totalContainer.innerHTML = `<h3>Gesamt: ${total.toFixed(2).replace('.', ',')} €</h3>`;
-}
-
 //delete function Basket
 
 function removeFromBasket(index) {
@@ -173,33 +154,49 @@ function updateBasket() {
   let totalContainer = document.getElementById('basket_total');
   basketContainer.innerHTML = '';
 
-  let total = 0;
+  let subtotal = 0;
 
   basket.forEach((item, index) => {
     let itemTotal = item.price * item.amount;
-    total += itemTotal;
+    subtotal += itemTotal;
 
     basketContainer.innerHTML += `
-  <div class="basket-item">
-      <div class="basket-item-name">${item.amount}x ${item.name}</div>
-      <div class="basket-item-controls">
-          <div class="quantity-group">
-              <button onclick="removeFromBasket(${index})" class="delete-btn"></button>
-              <div class="quantity-select">
-                  <button onclick="decreaseAmount(${index}) "class="remove_btn">-</button>
-                  <span>${item.amount}</span>
-                  <button onclick="addToBasket('${item.name}', ${item.price})"class="remove_btn">+</button>
-              </div>
-          </div>
-          <div class="basket-item-price">
-              ${itemTotal.toFixed(2).replace('.', ',')} €
-          </div>
-      </div>
-  </div>
-`;
+            <div class="basket-item">
+                <div class="basket-item-name">${item.amount}x ${item.name}</div>
+                <div class="basket-item-controls">
+                    <div class="quantity-group">
+                        <button onclick="removeFromBasket(${index})" class="delete-btn"></button>
+                        <div class="quantity-select">
+                            <button onclick="decreaseAmount(${index})" class="remove_btn">-</button>
+                            <span>${item.amount}</span>
+                            <button onclick="addToBasket('${item.name}', ${item.price})" class="remove_btn">+</button>
+                        </div>
+                    </div>
+                    <div class="basket-item-price">${itemTotal.toFixed(2).replace('.', ',')} €</div>
+                </div>
+            </div>`;
   });
 
-  totalContainer.innerHTML = `<h3>Gesamt: ${total.toFixed(2).replace('.', ',')} €</h3>`;
+  let deliveryCost = isDelivery ? DELIVERY_FEE : 0;
+  let finalTotal = subtotal + deliveryCost;
+
+  totalContainer.innerHTML = `
+        <div class="total-details">
+            <div class="total-row">
+                <span>Zwischensumme</span>
+                <span>${subtotal.toFixed(2).replace('.', ',')} €</span>
+            </div>
+            <div class="total-row">
+                <span>Lieferkosten</span>
+                <span>${deliveryCost.toFixed(2).replace('.', ',')} €</span>
+            </div>
+            <hr>
+            <div class="total-row total-final">
+                <h3>Gesamt</h3>
+                <h3>${finalTotal.toFixed(2).replace('.', ',')} €</h3>
+            </div>
+        </div>
+    `;
 }
 
 function decreaseAmount(index) {
@@ -214,5 +211,16 @@ function decreaseAmount(index) {
 
 function removeFromBasket(index) {
   basket.splice(index, 1);
+  updateBasket();
+}
+
+//Abholung und Lieferung
+function setDelivery(status) {
+  isDelivery = status;
+  document
+    .getElementById('btn-delivery')
+    .classList.toggle('active', isDelivery);
+  document.getElementById('btn-pickup').classList.toggle('active', !isDelivery);
+
   updateBasket();
 }
