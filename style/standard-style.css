@@ -25,6 +25,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: black;
 }
 
 p {
@@ -43,6 +44,27 @@ h2 {
 h3 {
   font-size: 24px;
   font-weight: 600;
+}
+
+.sub_nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 20px;
+  width: 100%;
+  padding: 50px 0 30px;
+}
+
+.sub_nav a:hover {
+  color: #e76c1f;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 5px #ff9900,
+    0 0 5px #ff9900,
+    0 0 5px #ff6600,
+    0 0 10px #ff6600;
+  border-radius: 12px;
+  transform: scale(1);
 }
 
 .dishes {
