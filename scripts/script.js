@@ -55,6 +55,7 @@ function renderPizza() {
                   <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
               </div>
               <p class="menu_description">${burger.description}</p>
+               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
           </div>
       </div>
     `;
@@ -77,6 +78,7 @@ function renderSalad() {
                   <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
               </div>
               <p class="menu_description">${burger.description}</p>
+               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
           </div>
       </div>
     `;
@@ -99,7 +101,7 @@ function renderSideDishes() {
                   <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
               </div>
               <p class="menu_description">${burger.description}</p>
-              
+               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
           </div>
       </div>
     `;
@@ -122,6 +124,7 @@ function renderDesserts() {
                   <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
               </div>
               <p class="menu_description">${burger.description}</p>
+               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
           </div>
       </div>
     `;
