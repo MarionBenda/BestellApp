@@ -180,19 +180,30 @@ function updateBasket() {
             </div>`;
   });
 
-  let deliveryCost = isDelivery ? DELIVERY_FEE : 0;
+  let deliveryCost = isDelivery && basket.length > 0 ? DELIVERY_FEE : 0;
   let finalTotal = subtotal + deliveryCost;
 
-  totalContainer.innerHTML = `
+  if (basket.length === 0) {
+    totalContainer.innerHTML = `<p class="empty-msg">Dein Warenkorb ist noch leer.</p>`;
+  } else {
+    totalContainer.innerHTML = `
         <div class="total-details">
             <div class="total-row">
                 <span>Zwischensumme</span>
                 <span>${subtotal.toFixed(2).replace('.', ',')} €</span>
             </div>
+            
+            
+            ${
+              isDelivery
+                ? `
             <div class="total-row">
                 <span>Lieferkosten</span>
                 <span>${deliveryCost.toFixed(2).replace('.', ',')} €</span>
-            </div>
+            </div>`
+                : ''
+            }
+            
             <hr>
             <div class="total-row total-final">
                 <h3>Gesamt</h3>
@@ -200,6 +211,7 @@ function updateBasket() {
             </div>
         </div>
     `;
+  }
 }
 
 function decreaseAmount(index) {
@@ -231,6 +243,14 @@ function setDelivery(status) {
 function openDelivery() {
   const dialog = document.getElementById('orderConfirmation');
   dialog.showModal();
+
+  basket = [];
+
+  updateBasket();
+
+  setTimeout(() => {
+    dialog.close();
+  }, 3000);
 }
 
 function closeDelivery() {

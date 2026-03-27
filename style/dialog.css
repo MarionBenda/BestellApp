@@ -17,6 +17,7 @@
   left: 50%;
   margin: 0;
   background-color: var(--clr-primary-txt);
+  transform: translate(-50%, -50%);
 }
 
 dialog::backdrop {
