@@ -227,3 +227,13 @@ function setDelivery(status) {
 
   updateBasket();
 }
+
+function openDelivery() {
+  const dialog = document.getElementById('orderConfirmation');
+  dialog.showModal();
+}
+
+function closeDelivery() {
+  const dialog = document.getElementById('orderConfirmation');
+  dialog.close();
+}

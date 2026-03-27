@@ -1,0 +1,53 @@
+:root {
+  --clr-primary-bg: #e76c1f;
+  --clr-secondary-bg: #ffffff;
+  --clr-teritiary-bg: #fdeadc;
+  --clr-quaternary-bg: #facaac;
+  --clr-primary-txt: #363534;
+}
+
+.order-dialog {
+  width: 450px;
+  height: 350px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  background-color: var(--clr-primary-txt);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.header-dialog {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px;
+}
+
+.dialog-order-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  color: #ffffff;
+  font-size: 42px;
+  padding-top: 40px;
+}
+
+.dialog-order-content img {
+  width: 80px;
+}
+
+.dialog-order-content-first {
+  font-size: 42px;
+}
+
+.dialog-order-content-second {
+  font-size: 28px;
+}

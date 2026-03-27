@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style/assets.css" />
     <link rel="stylesheet" href="./style/fonts.css" />
     <link rel="stylesheet" href="./style/basket.css" />
+    <link rel="stylesheet" href="./style/dialog.css" />
     <script src="./scripts/db.js"></script>
 
     <script src="./scripts/template.js"></script>
@@ -87,7 +88,7 @@
         <img
           class="header_icon"
           src="./assets/logos/pizza_logo.svg"
-          alt="Burger Icon"
+          alt="Pizza Icon"
         />
 
         <h2 class="section_headline">Pizza</h2>
@@ -102,7 +103,7 @@
         <img
           class="header_icon"
           src="./assets/logos/salad_logo.svg"
-          alt="Burger Icon"
+          alt="Salat Icon"
         />
 
         <h2 class="section_headline">Salate</h2>
@@ -117,7 +118,7 @@
         <img
           class="header_icon"
           src="./assets/logos/potato-icon.png"
-          alt="Burger Icon"
+          alt="Beilagen Icon"
         />
 
         <h2 class="section_headline">Beilagen</h2>
@@ -132,7 +133,7 @@
         <img
           class="header_icon"
           src="./assets/logos/macarons-color-icon.png"
-          alt="Burger Icon"
+          alt="Dessert Icon"
         />
 
         <h2 class="section_headline">Desserts</h2>
@@ -165,10 +166,28 @@
       <div id="basket_content"></div>
       <div id="basket_items" class="basket_content"></div>
       <div id="basket_total" class="basket_total"></div>
-      <button class="basket_button">
+      <button class="basket_button" onclick="openDelivery()">
         <span>Buy Know</span>
       </button>
     </aside>
+
+    <dialog id="orderConfirmation" class="order-dialog">
+      <header class="header-dialog">
+        <button id="closeButton" onclick="closeDelivery()" class="close-btn">
+          <img src="./assets/icons/close-icon.svg" alt="Schließbutton" />
+        </button>
+      </header>
+      <div class="dialog-order-content">
+        <img
+          src="./assets/icons/delivery_icon.svg"
+          alt="Bestellung auf dem Weg"
+        />
+        <p class="dialog-order-content-first">Bestellung bestätigt!</p>
+        <p class="dialog-order-content-second">
+          Deine Bestellung ist auf dem Weg!
+        </p>
+      </div>
+    </dialog>
   </body>
   <script src="./scripts/script.js"></script>
 </html>
