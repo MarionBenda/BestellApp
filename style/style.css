@@ -137,3 +137,50 @@ header img {
 .container_mobile {
   padding-inline: 16px;
 }
+
+.footer {
+  height: 100px;
+  background-color: var(--clr-primary-bg);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copyright-content {
+  font-size: 18px;
+  margin: 0;
+}
+
+.footer-content {
+  max-width: 1440px;
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  gap: 30px;
+  font-size: 18px;
+}
+
+.footer img {
+  height: 20px;
+}
+
+footer a {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+footer a:hover {
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 5px #ff9900,
+    0 0 5px #ff9900,
+    0 0 5px #ff6600,
+    0 0 10px #ff6600;
+  transform: scale(1);
+}
