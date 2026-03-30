@@ -58,3 +58,46 @@
     transition: none;
   }
 }
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 70px;
+    z-index: 999;
+
+    /* Hier deine Variable einfügen */
+    background-color: var(--clr-primary-txt);
+  }
+
+  .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .nav-item img {
+    height: 30px;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding-bottom: 150px;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-content {
+    display: flex;
+  }
+}
