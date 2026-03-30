@@ -1,147 +1,33 @@
-const rating = 4.5;
-const count = 215;
+const RATING = 4.5,
+  COUNT = 215,
+  DELIVERY_FEE = 4.99;
+let isDelivery = true,
+  basket = [];
 
-let isDelivery = true;
-const DELIVERY_FEE = 4.99;
+document.getElementById('ratingValue').textContent = RATING.toFixed(1);
+document.getElementById('ratingCount').textContent = `(${COUNT})`;
 
-document.getElementById('ratingValue').textContent = rating.toFixed(1);
-document.getElementById('ratingCount').textContent = `(${count})`;
+function renderCategory(category) {
+  const CONTAINER = document.getElementById(category);
+  if (!CONTAINER) return;
+  // MY_DISHES_NEW kommt aus der db.js
+  CONTAINER.innerHTML = MY_DISHES_NEW[category]
+    .map((dish) => getDishTemplate(dish))
+    .join('');
+}
 
 function init() {
-  renderBurger();
-  renderPizza();
-  renderSalad();
-  renderSideDishes();
-  renderDesserts();
+  Object.keys(MY_DISHES_NEW).forEach(renderCategory);
 }
-
-function renderBurger() {
-  let dishesContainer = document.getElementById('burger');
-  if (!dishesContainer) return;
-
-  dishesContainer.innerHTML = '';
-
-  MY_DISHES_NEW.burger.forEach((burger) => {
-    dishesContainer.innerHTML += `
-      <div class="burger-card">
-          <img src="${burger.image}" alt="${burger.name}" class="burger_img">
-          
-          <div class="card-body">
-              <div class="card-header">
-                  <h3>${burger.name}</h3>
-                  <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
-              </div>
-              <p class="menu_description">${burger.description}</p>
-              <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
-          </div>
-      </div>
-    `;
-  });
-}
-function renderPizza() {
-  let dishesContainer = document.getElementById('pizza');
-  if (!dishesContainer) return;
-
-  dishesContainer.innerHTML = '';
-
-  MY_DISHES_NEW.pizza.forEach((burger) => {
-    dishesContainer.innerHTML += `
-      <div class="burger-card">
-          <img src="${burger.image}" alt="${burger.name}" class="burger_img">
-          
-          <div class="card-body">
-              <div class="card-header">
-                  <h3>${burger.name}</h3>
-                  <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
-              </div>
-              <p class="menu_description">${burger.description}</p>
-               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
-          </div>
-      </div>
-    `;
-  });
-}
-function renderSalad() {
-  let dishesContainer = document.getElementById('salad');
-  if (!dishesContainer) return;
-
-  dishesContainer.innerHTML = '';
-
-  MY_DISHES_NEW.salad.forEach((burger) => {
-    dishesContainer.innerHTML += `
-      <div class="burger-card">
-          <img src="${burger.image}" alt="${burger.name}" class="burger_img">
-          
-          <div class="card-body">
-              <div class="card-header">
-                  <h3>${burger.name}</h3>
-                  <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
-              </div>
-              <p class="menu_description">${burger.description}</p>
-               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
-          </div>
-      </div>
-    `;
-  });
-}
-function renderSideDishes() {
-  let dishesContainer = document.getElementById('sideDishes');
-  if (!dishesContainer) return;
-
-  dishesContainer.innerHTML = '';
-
-  MY_DISHES_NEW.sideDishes.forEach((burger) => {
-    dishesContainer.innerHTML += `
-      <div class="burger-card">
-          <img src="${burger.image}" alt="${burger.name}" class="burger_img">
-          
-          <div class="card-body">
-              <div class="card-header">
-                  <h3>${burger.name}</h3>
-                  <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
-              </div>
-              <p class="menu_description">${burger.description}</p>
-               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
-          </div>
-      </div>
-    `;
-  });
-}
-function renderDesserts() {
-  let dishesContainer = document.getElementById('desserts');
-  if (!dishesContainer) return;
-
-  dishesContainer.innerHTML = '';
-
-  MY_DISHES_NEW.desserts.forEach((burger) => {
-    dishesContainer.innerHTML += `
-      <div class="burger-card">
-          <img src="${burger.image}" alt="${burger.name}" class="burger_img">
-          
-          <div class="card-body">
-              <div class="card-header">
-                  <h3>${burger.name}</h3>
-                  <p class="price">${burger.price.toFixed(2).replace('.', ',')} €</p>
-              </div>
-              <p class="menu_description">${burger.description}</p>
-               <button class="add_btn" onclick="addToBasket('${burger.name}', ${burger.price})">Add to basket</button>
-          </div>
-      </div>
-    `;
-  });
-}
-
-let basket = [];
 
 function addToBasket(name, price) {
-  let index = basket.findIndex((item) => item.name === name);
+  const ITEM = basket.find((i) => i.name === name);
+  ITEM ? ITEM.amount++ : basket.push({ name, price, amount: 1 });
+  updateBasket();
+}
 
-  if (index === -1) {
-    basket.push({ name: name, price: price, amount: 1 });
-  } else {
-    basket[index].amount++;
-  }
-
+function decreaseAmount(index) {
+  basket[index].amount > 1 ? basket[index].amount-- : basket.splice(index, 1);
   updateBasket();
 }
 
@@ -151,80 +37,28 @@ function removeFromBasket(index) {
 }
 
 function updateBasket() {
-  let basketContainer = document.getElementById('basket_items');
-  let totalContainer = document.getElementById('basket_total');
-  basketContainer.innerHTML = '';
+  const LIST_CONTAINER = document.getElementById('basket_items'),
+    TOTAL_CONTAINER = document.getElementById('basket_total');
 
-  let subtotal = 0;
+  const SUBTOTAL = basket.reduce(
+    (sum, item) => sum + item.price * item.amount,
+    0,
+  );
+  const FEE = isDelivery && basket.length ? DELIVERY_FEE : 0;
 
-  basket.forEach((item, index) => {
-    let itemTotal = item.price * item.amount;
-    subtotal += itemTotal;
+  LIST_CONTAINER.innerHTML = basket
+    .map((item, i) => getBasketItemTemplate(item, i))
+    .join('');
 
-    basketContainer.innerHTML += `
-            <div class="basket-item">
-                <div class="basket-item-name">${item.amount}x ${item.name}</div>
-                <div class="basket-item-controls">
-                    <div class="quantity-group">
-                        <button onclick="removeFromBasket(${index})" class="delete-btn"></button>
-                        <div class="quantity-select">
-                            <button onclick="decreaseAmount(${index})" class="remove_btn">-</button>
-                            <span>${item.amount}</span>
-                            <button onclick="addToBasket('${item.name}', ${item.price})" class="remove_btn">+</button>
-                        </div>
-                    </div>
-                    <div class="basket-item-price">${itemTotal.toFixed(2).replace('.', ',')} €</div>
-                </div>
-            </div>`;
-  });
-
-  let deliveryCost = isDelivery && basket.length > 0 ? DELIVERY_FEE : 0;
-  let finalTotal = subtotal + deliveryCost;
-
-  if (basket.length === 0) {
-    totalContainer.innerHTML = `<p class="empty-msg">Dein Warenkorb ist noch leer.</p>`;
-  } else {
-    totalContainer.innerHTML = `
-        <div class="total-details">
-            <div class="total-row">
-                <span>Zwischensumme</span>
-                <span>${subtotal.toFixed(2).replace('.', ',')} €</span>
-            </div>
-            
-            
-            ${
-              isDelivery
-                ? `
-            <div class="total-row">
-                <span>Lieferkosten</span>
-                <span>${deliveryCost.toFixed(2).replace('.', ',')} €</span>
-            </div>`
-                : ''
-            }
-            
-            <hr>
-            <div class="total-row total-final">
-                <h3>Gesamt</h3>
-                <h3>${finalTotal.toFixed(2).replace('.', ',')} €</h3>
-            </div>
-        </div>
-    `;
-  }
+  renderTotalSection(TOTAL_CONTAINER, SUBTOTAL, FEE);
 }
 
-function decreaseAmount(index) {
-  if (basket[index].amount > 1) {
-    basket[index].amount--;
-  } else {
-    removeFromBasket(index);
+function renderTotalSection(element, subtotal, fee) {
+  if (!basket.length) {
+    element.innerHTML = `<p class="empty-msg">Dein Warenkorb ist noch leer.</p>`;
+    return;
   }
-
-  updateBasket();
-}
-
-function removeFromBasket(index) {
-  basket.splice(index, 1);
-  updateBasket();
+  element.innerHTML = getTotalSectionTemplate(subtotal, fee, isDelivery);
 }
 
 function setDelivery(status) {
@@ -233,50 +67,33 @@ function setDelivery(status) {
     .getElementById('btn-delivery')
     .classList.toggle('active', isDelivery);
   document.getElementById('btn-pickup').classList.toggle('active', !isDelivery);
-
   updateBasket();
 }
 
 function openDelivery() {
-  const basketAside = document.getElementById('main-basket');
-  const overlay = document.getElementById('basket-overlay');
-  const dialog = document.getElementById('orderConfirmation');
-
-  if (basket.length === 0) {
-    alert('Dein Warenkorb ist leer!');
-    return;
-  }
-
-  if (basketAside) basketAside.classList.remove('show');
-  if (overlay) overlay.style.display = 'none';
-
-  // 2. Dialog anzeigen
-  if (dialog) {
-    dialog.showModal();
-
+  const BASKET_EL = document.getElementById('main-basket'),
+    OVERLAY = document.getElementById('basket-overlay'),
+    DIALOG = document.getElementById('orderConfirmation');
+  if (!basket.length) return alert('Dein Warenkorb ist leer!');
+  if (BASKET_EL) BASKET_EL.classList.remove('show');
+  if (OVERLAY) OVERLAY.style.display = 'none';
+  if (DIALOG) {
+    DIALOG.showModal();
     basket = [];
     updateBasket();
-
-    setTimeout(() => {
-      dialog.close();
-    }, 3000);
+    setTimeout(() => DIALOG.close(), 3000);
   }
 }
 
 function closeDelivery() {
-  const dialog = document.getElementById('orderConfirmation');
-  dialog.close();
+  document.getElementById('orderConfirmation').close();
 }
 
 function toggleBasket() {
-  const basket = document.getElementById('main-basket');
-  const overlay = document.getElementById('basket-overlay');
-
-  basket.classList.toggle('show');
-
-  if (basket.classList.contains('show')) {
-    overlay.style.display = 'block';
-  } else {
-    overlay.style.display = 'none';
-  }
+  const BASKET_EL = document.getElementById('main-basket'),
+    OVERLAY = document.getElementById('basket-overlay');
+  BASKET_EL.classList.toggle('show');
+  OVERLAY.style.display = BASKET_EL.classList.contains('show')
+    ? 'block'
+    : 'none';
 }
