@@ -97,3 +97,8 @@ function toggleBasket() {
     ? 'block'
     : 'none';
 }
+
+function toggleBasket() {
+  const basket = document.querySelector('.basket');
+  basket.classList.toggle('show');
+}
