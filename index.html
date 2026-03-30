@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./style/fonts.css" />
     <link rel="stylesheet" href="./style/basket.css" />
     <link rel="stylesheet" href="./style/dialog.css" />
+    <link rel="stylesheet" href="./style/media-query.css" />
     <script src="./scripts/db.js"></script>
 
     <script src="./scripts/template.js"></script>
@@ -142,7 +143,12 @@
         <div class="dishes" id="desserts"></div>
       </div>
     </section>
-    <aside class="basket">
+
+    <button class="basket-sidebar-trigger" onclick="toggleBasket()">
+      <img src="./assets/icons/shopping_cart_icon_full.svg" alt="Warenkorb" />
+    </button>
+    <div class="basket-overlay" onclick="toggleBasket()"></div>
+    <aside id="main-basket" class="basket">
       <div class="basket-header-row">
         <div class="method-switch">
           <button

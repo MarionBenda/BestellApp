@@ -15,6 +15,11 @@
   right: 0;
   top: 30%;
   padding: 10px 10px;
+  flex-direction: column;
+  background-color: var(--clr-primary-txt);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
 .basket-item {
@@ -71,4 +76,32 @@
   padding: 20px 0;
   display: flex;
   justify-content: center;
+}
+
+.basket-sidebar-trigger {
+  display: flex;
+  position: fixed;
+  right: 0;
+  top: 20%;
+  transform: translateY(-50%);
+  z-index: 1100;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 12px 0 0 12px;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+/* Overlay-Logik */
+.basket-overlay {
+  display: none;
+  position: fixed;
+  inset: 0; /* Abkürzung für top/left/right/bottom: 0 */
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+/* Wenn Basket offen, dann Overlay anzeigen */
+.basket.show ~ .basket-overlay {
+  display: block;
 }

@@ -145,8 +145,6 @@ function addToBasket(name, price) {
   updateBasket();
 }
 
-//delete function Basket
-
 function removeFromBasket(index) {
   basket.splice(index, 1);
   updateBasket();
@@ -229,7 +227,6 @@ function removeFromBasket(index) {
   updateBasket();
 }
 
-//Abholung und Lieferung
 function setDelivery(status) {
   isDelivery = status;
   document
@@ -241,19 +238,45 @@ function setDelivery(status) {
 }
 
 function openDelivery() {
+  const basketAside = document.getElementById('main-basket');
+  const overlay = document.getElementById('basket-overlay');
   const dialog = document.getElementById('orderConfirmation');
-  dialog.showModal();
 
-  basket = [];
+  if (basket.length === 0) {
+    alert('Dein Warenkorb ist leer!');
+    return;
+  }
 
-  updateBasket();
+  if (basketAside) basketAside.classList.remove('show');
+  if (overlay) overlay.style.display = 'none';
 
-  setTimeout(() => {
-    dialog.close();
-  }, 3000);
+  // 2. Dialog anzeigen
+  if (dialog) {
+    dialog.showModal();
+
+    basket = [];
+    updateBasket();
+
+    setTimeout(() => {
+      dialog.close();
+    }, 3000);
+  }
 }
 
 function closeDelivery() {
   const dialog = document.getElementById('orderConfirmation');
   dialog.close();
+}
+
+function toggleBasket() {
+  const basket = document.getElementById('main-basket');
+  const overlay = document.getElementById('basket-overlay');
+
+  basket.classList.toggle('show');
+
+  if (basket.classList.contains('show')) {
+    overlay.style.display = 'block';
+  } else {
+    overlay.style.display = 'none';
+  }
 }
