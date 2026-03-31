@@ -38,19 +38,28 @@ function removeFromBasket(index) {
 
 function updateBasket() {
   const LIST_CONTAINER = document.getElementById('basket_items'),
-    TOTAL_CONTAINER = document.getElementById('basket_total');
+    TOTAL_CONTAINER = document.getElementById('basket_total'),
+    // NEU: Der Container im Button
+    BTN_PRICE_CONTAINER = document.getElementById('total_btn_price');
 
   const SUBTOTAL = basket.reduce(
     (sum, item) => sum + item.price * item.amount,
     0,
   );
   const FEE = isDelivery && basket.length ? DELIVERY_FEE : 0;
+  const TOTAL = SUBTOTAL + FEE; // Gesamtsumme berechnen
 
   LIST_CONTAINER.innerHTML = basket
     .map((item, i) => getBasketItemTemplate(item, i))
     .join('');
 
   renderTotalSection(TOTAL_CONTAINER, SUBTOTAL, FEE);
+
+  // NEU: Preis im Button anzeigen (nur wenn der Warenkorb nicht leer ist)
+  if (BTN_PRICE_CONTAINER) {
+    BTN_PRICE_CONTAINER.textContent =
+      basket.length > 0 ? `(${TOTAL.toFixed(2).replace('.', ',')} €)` : '';
+  }
 }
 
 function renderTotalSection(element, subtotal, fee) {
