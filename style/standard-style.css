@@ -49,10 +49,11 @@ h3 {
 .sub_nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: clamp(10px, 2vi, 20px);
   font-size: 20px;
   width: 100%;
-  padding: 50px 0 30px;
+  padding: clamp(20px, 5vi, 50px) 15px clamp(15px, 3vi, 30px);
 }
 
 .sub_nav a:hover {
@@ -79,6 +80,7 @@ h3 {
 .burger-card {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   padding: 5px 5px;
   background-color: var(--clr-teritiary-bg);
@@ -120,68 +122,6 @@ h3 {
   font-size: 24px;
   margin: 0;
   white-space: nowrap;
-}
-
-.basket {
-  background-color: var(--clr-primary-txt);
-  border-radius: 12px;
-  width: 350px;
-  position: sticky;
-  display: flex;
-  flex-direction: column;
-}
-
-.basket_content {
-  display: flex;
-  max-width: 100%;
-  gap: 10px;
-  flex-direction: column;
-  overflow-y: auto;
-  padding-right: 5px;
-}
-
-.basket_counter {
-  display: flex;
-  justify-content: space-between;
-}
-
-.basket_total {
-  color: #ffffff;
-  width: 100%;
-}
-
-.quantity-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.method-switch {
-  display: flex;
-  gap: 5px;
-  justify-content: flex-end;
-}
-
-.total-details {
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
-}
-
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.total-final {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.total-final h3 {
-  margin: 0;
 }
 
 .mobile-nav {

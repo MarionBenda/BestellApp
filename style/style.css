@@ -12,6 +12,7 @@ h2 {
 
 h1 {
   font-family: 'Palanquin Dark';
+  text-wrap: balance;
 }
 
 .header_main {
@@ -49,16 +50,16 @@ header img {
 
 .main_img_logo {
   position: absolute;
-  bottom: -70px;
   left: 50%;
   transform: translateX(-50%);
-  height: 200px;
+  height: clamp(120px, 15vi, 200px);
+  bottom: clamp(-70px, -5vi, -40px);
 }
 
 .main_content {
-  padding: 80px 0 20px 0;
+  padding: clamp(40px, 10vi, 80px) 20px 20px 20px;
   display: flex;
-  justify-content: center;
+  text-align: center;
   flex-direction: column;
   align-items: center;
 }
@@ -68,8 +69,8 @@ header img {
   align-items: center;
   background-color: var(--clr-quaternary-bg);
   border-radius: 10px;
-  padding: 0px 10px;
-  gap: 5px;
+  padding: 2px clamp(4px, 1vi, 10px);
+  gap: clamp(3px, 0.5vi, 5px);
 }
 
 .rating_value {
@@ -84,16 +85,23 @@ header img {
 
 .brand_name {
   color: var(--clr-primary-txt);
+  white-space: nowrap;
 }
 
 .highlight {
   color: var(--clr-primary-bg);
+  white-space: nowrap;
 }
 
 .slogan {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: clamp(5px, 1.5vi, 10px);
+  width: 100%;
+  padding-inline: 15px;
 }
 
 .order_section {
@@ -116,10 +124,12 @@ header img {
 .section_headline {
   padding-left: 100px;
 }
+
 .header_icon {
   position: absolute;
-  height: 90px;
   bottom: 0;
+  height: clamp(50px, 8vi, 90px);
+  width: auto;
 }
 
 .container {
@@ -139,40 +149,57 @@ header img {
 }
 
 .footer {
-  height: 100px;
+  min-height: 100px;
   background-color: var(--clr-primary-bg);
-  display: flex;
   width: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  padding-block: clamp(1rem, 2vi, 2rem);
+  padding-inline: 20px;
 }
 
 .copyright {
   display: flex;
   align-items: center;
   gap: 5px;
+  /* flex-shrink: 0; */
+  margin: 0;
 }
 
 .copyright-content {
-  font-size: 18px;
   margin: 0;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
 }
 
 .footer-content {
   max-width: 1440px;
+  width: 100%;
   display: flex;
   color: #ffffff;
   align-items: center;
   gap: 30px;
   font-size: 18px;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(15px, 3vi, 30px);
 }
 
 .footer img {
-  height: 20px;
+  height: clamp(16px, 2.5vi, 20px);
+  width: auto;
 }
 
 footer a {
   color: #ffffff;
   cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 footer a:hover {
@@ -182,5 +209,5 @@ footer a:hover {
     0 0 5px #ff9900,
     0 0 5px #ff6600,
     0 0 10px #ff6600;
-  transform: scale(1);
+  transform: translateY(-2px);
 }
