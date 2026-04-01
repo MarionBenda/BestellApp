@@ -39,15 +39,22 @@ function removeFromBasket(index) {
 function updateBasket() {
   const LIST_CONTAINER = document.getElementById('basket_items'),
     TOTAL_CONTAINER = document.getElementById('basket_total'),
-    // NEU: Der Container im Button
     BTN_PRICE_CONTAINER = document.getElementById('total_btn_price');
+
+  const ALL_BADGES = document.querySelectorAll('.basket-badge');
 
   const SUBTOTAL = basket.reduce(
     (sum, item) => sum + item.price * item.amount,
     0,
   );
+  const TOTAL_COUNT = basket.reduce((sum, item) => sum + item.amount, 0);
   const FEE = isDelivery && basket.length ? DELIVERY_FEE : 0;
-  const TOTAL = SUBTOTAL + FEE; // Gesamtsumme berechnen
+  const TOTAL = SUBTOTAL + FEE;
+
+  ALL_BADGES.forEach((badge) => {
+    badge.textContent = TOTAL_COUNT;
+    badge.style.display = TOTAL_COUNT > 0 ? 'flex' : 'none';
+  });
 
   LIST_CONTAINER.innerHTML = basket
     .map((item, i) => getBasketItemTemplate(item, i))
@@ -55,7 +62,6 @@ function updateBasket() {
 
   renderTotalSection(TOTAL_CONTAINER, SUBTOTAL, FEE);
 
-  // NEU: Preis im Button anzeigen (nur wenn der Warenkorb nicht leer ist)
   if (BTN_PRICE_CONTAINER) {
     BTN_PRICE_CONTAINER.textContent =
       basket.length > 0 ? `(${TOTAL.toFixed(2).replace('.', ',')} €)` : '';
@@ -101,13 +107,13 @@ function closeDelivery() {
 function toggleBasket() {
   const BASKET_EL = document.getElementById('main-basket'),
     OVERLAY = document.getElementById('basket-overlay');
-  BASKET_EL.classList.toggle('show');
-  OVERLAY.style.display = BASKET_EL.classList.contains('show')
-    ? 'block'
-    : 'none';
-}
 
-function toggleBasket() {
-  const basket = document.querySelector('.basket');
-  basket.classList.toggle('show');
+  BASKET_EL.classList.toggle('show');
+
+  // Das sorgt dafür, dass der Hintergrund abdunkelt
+  if (OVERLAY) {
+    OVERLAY.style.display = BASKET_EL.classList.contains('show')
+      ? 'block'
+      : 'none';
+  }
 }

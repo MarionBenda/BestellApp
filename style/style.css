@@ -15,14 +15,14 @@ h1 {
   text-wrap: balance;
 }
 
-.header_main {
+.header-main {
   height: 80px;
   background-color: var(--clr-primary-bg);
   display: flex;
   width: 100%;
 }
 
-.header_content {
+.header-content {
   max-width: 1440px;
   width: 100%;
   justify-content: space-between;
@@ -36,19 +36,19 @@ header img {
   height: 35px;
 }
 
-.main_img_container {
+.main-img-container {
   position: relative;
   max-width: 100%;
 }
 
-.main_img {
+.main-img {
   display: block;
   width: 100%;
   height: 350px;
   object-fit: cover;
 }
 
-.main_img_logo {
+.main-img-logo {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -56,7 +56,7 @@ header img {
   bottom: clamp(-70px, -5vi, -40px);
 }
 
-.main_content {
+.main-content {
   padding: clamp(40px, 10vi, 80px) 20px 20px 20px;
   display: flex;
   text-align: center;
@@ -64,7 +64,7 @@ header img {
   align-items: center;
 }
 
-.rating_container {
+.rating-container {
   display: flex;
   align-items: center;
   background-color: var(--clr-quaternary-bg);
@@ -73,17 +73,17 @@ header img {
   gap: clamp(3px, 0.5vi, 5px);
 }
 
-.rating_value {
+.rating-value {
   font-size: 20px;
   font-weight: bold;
 }
 
-.rating_count {
+.rating-count {
   font-size: 18px;
   color: #726d6d;
 }
 
-.brand_name {
+.brand-name {
   color: var(--clr-primary-txt);
   white-space: nowrap;
 }
@@ -104,28 +104,23 @@ header img {
   padding-inline: 15px;
 }
 
-.order_section {
-  position: relative;
-  width: 100%;
-}
-
-.food_content_headline {
+.food-content-headline {
   height: 44px;
   width: 100%;
   background-color: #e76c1f;
   position: absolute;
 }
 
-.section_header {
+.section-header {
   position: relative;
   padding-left: 150px;
 }
 
-.section_headline {
+.section-headline {
   padding-left: 100px;
 }
 
-.header_icon {
+.header-icon {
   position: absolute;
   bottom: 0;
   height: clamp(50px, 8vi, 90px);
@@ -138,13 +133,13 @@ header img {
   margin: 0 auto;
 }
 
-.menu_content {
+.menu-content {
   display: flex;
   gap: 20px;
   align-items: flex-start;
 }
 
-.container_mobile {
+.container-mobile {
   padding-inline: 16px;
 }
 
@@ -163,7 +158,6 @@ header img {
   display: flex;
   align-items: center;
   gap: 5px;
-  /* flex-shrink: 0; */
   margin: 0;
 }
 

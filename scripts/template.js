@@ -8,7 +8,7 @@ function getDishTemplate(dish) {
           <p class="price">${dish.price.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</p>
         </div>
         <p class="menu_description">${dish.description}</p>
-        <button class="add_btn" onclick="addToBasket('${dish.name}', ${dish.price})">Add to basket</button>
+        <button class="add-btn" onclick="addToBasket('${dish.name}', ${dish.price})">Add to basket</button>
       </div>
     </div>`;
 }
@@ -21,9 +21,9 @@ function getBasketItemTemplate(item, i) {
         <div class="quantity-group">
           <button onclick="removeFromBasket(${i})" class="delete-btn"></button>
           <div class="quantity-select">
-            <button onclick="decreaseAmount(${i})" class="remove_btn">-</button>
+            <button onclick="decreaseAmount(${i})" class="remove-btn">-</button>
             <span>${item.amount}</span>
-            <button onclick="addToBasket('${item.name}', ${item.price})" class="remove_btn">+</button>
+            <button onclick="addToBasket('${item.name}', ${item.price})" class="remove-btn">+</button>
           </div>
         </div>
         <div class="basket-item-price">${(item.price * item.amount).toFixed(2).replace('.', ',')} €</div>

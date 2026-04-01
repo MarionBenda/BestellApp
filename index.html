@@ -23,8 +23,8 @@
   </head>
 
   <body onload="init()">
-    <header class="header_main">
-      <div class="header_content">
+    <header class="header-main">
+      <div class="header-content">
         <img src="./assets/logos/main_logo.svg" alt="Hauptlogo der Seite" />
         <img
           src="./assets/icons/menu_placeholder_icon.svg"
@@ -32,196 +32,215 @@
         />
       </div>
     </header>
-    <section class="main_section">
-      <div class="main_img_container">
-        <img
-          class="main_img"
-          src="./assets/img/header_img.jpg"
-          alt="Hauptfoto der Seite"
-        />
-        <img
-          class="main_img_logo"
-          src="./assets/logos/logo_burger.svg"
-          alt="Logo Burger"
-        />
-      </div>
-      <div class="main_content">
-        <div class="slogan">
-          <h1 class="brand_name"><span class="highlight">Burger</span>House</h1>
-          <div class="rating_container">
-            <img
-              src="./assets/icons/star_icon.svg"
-              alt="Stern Bewertungs Icon"
-            />
-            <span class="rating_value" id="ratingValue"></span>
-            <span class="rating_count" id="ratingCount">(215)</span>
+    <main>
+      <section>
+        <div class="main-img-container">
+          <img
+            class="main-img"
+            src="./assets/img/header_img.jpg"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            class="main-img-logo"
+            src="./assets/logos/logo_burger.svg"
+            alt="Logo Burger"
+          />
+        </div>
+        <div class="main-content">
+          <div class="slogan">
+            <h1 class="brand-name">
+              <span class="highlight">Burger</span>House
+            </h1>
+            <div class="rating-container">
+              <img
+                src="./assets/icons/star_icon.svg"
+                alt="Stern Bewertungs Icon"
+              />
+              <span class="rating-value" id="ratingValue"></span>
+              <span class="rating-count" id="ratingCount">(215)</span>
+            </div>
           </div>
+          <p>
+            The best of Burgers, Pizza, and Greens, all in one greate place.
+          </p>
         </div>
-        <p>The best of Burgers, Pizza, and Greens, all in one greate place.</p>
-      </div>
 
-      <nav class="sub_nav">
-        <a href="#burger">Burger</a>
-        <a href="#pizza">Pizza</a>
-        <a href="#salad">Salate</a>
-        <a href="#sideDishes">Beilagen</a>
-        <a href="#desserts">Desserts</a>
-      </nav>
-    </section>
-    <section class="order_section">
-      <div class="food_content_headline"></div>
-      <header class="section_header container container_mobile">
-        <img
-          class="header_icon"
-          src="./assets/icons/burger_icon.svg"
-          alt="Burger Icon"
-        />
+        <nav class="sub-nav" aria-label="Kategorieauswahl">
+          <a href="#burger">Burger</a>
+          <a href="#pizza">Pizza</a>
+          <a href="#salad">Salate</a>
+          <a href="#sideDishes">Beilagen</a>
+          <a href="#desserts">Desserts</a>
+        </nav>
+      </section>
+      <section class="order-section">
+        <div class="food-content-headline"></div>
+        <header class="section-header container container-mobile">
+          <img
+            class="header-icon"
+            src="./assets/icons/burger_icon.svg"
+            alt="Burger Icon"
+          />
 
-        <h2 class="section_headline">Burger</h2>
-      </header>
-      <div class="menu_content">
-        <div class="dishes" id="burger"></div>
-      </div>
-    </section>
-    <section class="order_section">
-      <div class="food_content_headline"></div>
-      <header class="section_header container container_mobile">
-        <img
-          class="header_icon"
-          src="./assets/logos/pizza_logo.svg"
-          alt="Pizza Icon"
-        />
-
-        <h2 class="section_headline">Pizza</h2>
-      </header>
-      <div class="menu_content">
-        <div class="dishes" id="pizza"></div>
-      </div>
-    </section>
-    <section class="order_section">
-      <div class="food_content_headline"></div>
-      <header class="section_header container container_mobile">
-        <img
-          class="header_icon"
-          src="./assets/logos/salad_logo.svg"
-          alt="Salat Icon"
-        />
-
-        <h2 class="section_headline">Salate</h2>
-      </header>
-      <div class="menu_content">
-        <div class="dishes" id="salad"></div>
-      </div>
-    </section>
-    <section class="order_section">
-      <div class="food_content_headline"></div>
-      <header class="section_header container container_mobile">
-        <img
-          class="header_icon"
-          src="./assets/logos/potato-icon.png"
-          alt="Beilagen Icon"
-        />
-
-        <h2 class="section_headline">Beilagen</h2>
-      </header>
-      <div class="menu_content">
-        <div class="dishes" id="sideDishes"></div>
-      </div>
-    </section>
-    <section class="order_section">
-      <div class="food_content_headline"></div>
-      <header class="section_header container container_mobile">
-        <img
-          class="header_icon"
-          src="./assets/logos/macarons-color-icon.png"
-          alt="Dessert Icon"
-        />
-
-        <h2 class="section_headline">Desserts</h2>
-      </header>
-      <div class="menu_content">
-        <div class="dishes" id="desserts"></div>
-      </div>
-    </section>
-
-    <button class="basket-sidebar-trigger" onclick="toggleBasket()">
-      <img src="./assets/icons/shopping_cart_icon_full.svg" alt="Warenkorb" />
-    </button>
-    <div class="basket-overlay" onclick="toggleBasket()"></div>
-    <aside id="main-basket" class="basket">
-      <div class="basket-header-row">
-        <div class="method-switch">
-          <button
-            id="btn-delivery"
-            class="method-btn active"
-            onclick="setDelivery(true)"
-          >
-            Lieferung
-          </button>
-          <button
-            id="btn-pickup"
-            class="method-btn"
-            onclick="setDelivery(false)"
-          >
-            Abholung
-          </button>
+          <h2 class="section-headline">Burger</h2>
+        </header>
+        <div class="menu-content">
+          <div class="dishes" id="burger"></div>
         </div>
-        <h2>Warenkorb</h2>
-      </div>
+      </section>
+      <section class="order-section">
+        <div class="food-content-headline"></div>
+        <header class="section-header container container-mobile">
+          <img
+            class="header-icon"
+            src="./assets/logos/pizza_logo.svg"
+            alt="Pizza Icon"
+          />
 
-      <div id="basket_content"></div>
-      <div id="basket_items" class="basket_content"></div>
-      <div id="basket_total" class="basket_total"></div>
-      <button class="basket_button" onclick="openDelivery()">
-        <span>Buy Know</span>
-        <span id="total_btn_price"></span>
+          <h2 class="section-headline">Pizza</h2>
+        </header>
+        <div class="menu-content">
+          <div class="dishes" id="pizza"></div>
+        </div>
+      </section>
+      <section class="order-section">
+        <div class="food-content-headline"></div>
+        <header class="section-header container container-mobile">
+          <img
+            class="header-icon"
+            src="./assets/logos/salad_logo.svg"
+            alt="Salat Icon"
+          />
+
+          <h2 class="section-headline">Salate</h2>
+        </header>
+        <div class="menu-content">
+          <div class="dishes" id="salad"></div>
+        </div>
+      </section>
+      <section class="order-section">
+        <div class="food-content-headline"></div>
+        <header class="section-header container container-mobile">
+          <img
+            class="header-icon"
+            src="./assets/logos/potato-icon.png"
+            alt="Beilagen Icon"
+          />
+
+          <h2 class="section-headline">Beilagen</h2>
+        </header>
+        <div class="menu-content">
+          <div class="dishes" id="sideDishes"></div>
+        </div>
+      </section>
+      <section class="order-section">
+        <div class="food-content-headline"></div>
+        <header class="section-header container container-mobile">
+          <img
+            class="header-icon"
+            src="./assets/logos/macarons-color-icon.png"
+            alt="Dessert Icon"
+          />
+
+          <h2 class="section-headline">Desserts</h2>
+        </header>
+        <div class="menu-content">
+          <div class="dishes" id="desserts"></div>
+        </div>
+      </section>
+
+      <button
+        class="basket-sidebar-trigger"
+        class="basket-count-badge"
+        onclick="toggleBasket()"
+      >
+        <img src="./assets/icons/shopping_cart_icon_full.svg" alt="Warenkorb" />
+        <span class="basket-count-badge" class="basket-badge">0</span>
       </button>
-    </aside>
-
-    <dialog id="orderConfirmation" class="order-dialog">
-      <header class="header-dialog">
-        <button id="closeButton" onclick="closeDelivery()" class="close-btn">
-          <img src="./assets/icons/close-icon.svg" alt="Schließbutton" />
-        </button>
-      </header>
-      <div class="dialog-order-content">
-        <img
-          src="./assets/icons/delivery_icon.svg"
-          alt="Bestellung auf dem Weg"
-        />
-        <p class="dialog-order-content-first">Bestellung bestätigt!</p>
-        <p class="dialog-order-content-second">
-          Deine Bestellung ist auf dem Weg!
-        </p>
-      </div>
-    </dialog>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="copyright">
-          <img src="./assets/icons/copyright_icon.svg" alt="Logo Copyright" />
-          <p class="copyright-content">2025 LieferLust</p>
+      <div class="basket-overlay" onclick="toggleBasket()"></div>
+      <aside id="main-basket" class="basket" aria-labelledby="basket-title">
+        <div class="basket-header-row">
+          <div class="method-switch">
+            <button
+              id="btn-delivery"
+              class="method-btn active"
+              onclick="setDelivery(true)"
+            >
+              Lieferung
+            </button>
+            <button
+              id="btn-pickup"
+              class="method-btn"
+              onclick="setDelivery(false)"
+            >
+              Abholung
+            </button>
+          </div>
+          <h2>Warenkorb</h2>
         </div>
-        <a href="#">Impressum</a>
-        <a href="#">Cookie Preference</a>
-      </div>
-    </footer>
-    <nav class="mobile-nav">
-      <a href="index.html" class="nav-item">
-        <img src="./assets/icons/home_icon.svg" alt="Home" />
-      </a>
-      <div class="nav-item">
+
+        <div id="basket_content"></div>
+        <div id="basket_items" class="basket-content"></div>
+        <div id="basket_total" class="basket-total"></div>
+        <button class="basket-button" onclick="openDelivery()">
+          <span>Buy Now</span>
+          <span id="total_btn_price"></span>
+        </button>
+      </aside>
+
+      <dialog id="orderConfirmation" class="order-dialog">
+        <header class="header-dialog">
+          <button id="closeButton" onclick="closeDelivery()" class="close-btn">
+            <img src="./assets/icons/close-icon.svg" alt="Schließbutton" />
+          </button>
+        </header>
+        <div class="dialog-order-content">
+          <img
+            src="./assets/icons/delivery_icon.svg"
+            alt="Bestellung auf dem Weg"
+          />
+          <p class="dialog-order-content-first">Bestellung bestätigt!</p>
+          <p class="dialog-order-content-second">
+            Deine Bestellung ist auf dem Weg!
+          </p>
+        </div>
+      </dialog>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="copyright">
+            <img src="./assets/icons/copyright_icon.svg" alt="Logo Copyright" />
+            <p class="copyright-content">2025 LieferLust</p>
+          </div>
+          <a href="#">Impressum</a>
+          <a href="#">Cookie Preference</a>
+        </div>
+      </footer>
+    </main>
+    <nav class="mobile-nav" aria-label="Hauptnavigation mobil">
+      <button aria-label="Zurück zum Anfang der Seite" class="nav-item">
+        <a href="index.html" class="nav-item">
+          <img src="./assets/icons/home_icon.svg" alt="Home" />
+        </a>
+      </button>
+      <button aria-label="Profil öffnen" class="nav-item">
         <img src="./assets/icons/profile_icon.svg" alt="Profil" />
-      </div>
-      <div class="nav-item">
+      </button>
+      <button aria-label="Speisekarte" class="nav-item">
         <img src="./assets/icons/takeout_dining_2.svg" alt="Karte" />
-      </div>
-      <div class="nav-item" onclick="toggleBasket()">
+      </button>
+      <button
+        aria-label="Warenkorb öffnen"
+        class="nav-item"
+        onclick="toggleBasket()"
+      >
         <img
           src="./assets/icons/shopping_cart_icon_press.svg"
           alt="Warenkorb"
         />
-      </div>
+        <span class="basket-count-badge" class="basket-badge">0</span>
+      </button>
     </nav>
   </body>
   <script src="./scripts/script.js"></script>

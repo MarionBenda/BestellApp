@@ -32,9 +32,11 @@ p {
   font-size: 24px;
   font-weight: bold;
 }
-.order_section {
+.order-section {
   background-color: var(--clr-secondary-bg);
   flex: 1;
+  position: relative;
+  width: 100%;
 }
 
 h2 {
@@ -46,7 +48,7 @@ h3 {
   font-weight: 600;
 }
 
-.sub_nav {
+.sub-nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -56,7 +58,7 @@ h3 {
   padding: clamp(20px, 5vi, 50px) 15px clamp(15px, 3vi, 30px);
 }
 
-.sub_nav a:hover {
+.sub-nav a:hover {
   color: #e76c1f;
   transition: all 0.3s ease;
   box-shadow:

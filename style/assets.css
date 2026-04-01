@@ -6,7 +6,7 @@
   --clr-primary-txt: #363534;
 }
 
-.basket_button {
+.basket-button {
   background-color: var(--clr-primary-bg);
   border-radius: 40px;
   padding: 10px 20px;
@@ -15,7 +15,7 @@
   color: #ffffff;
 }
 
-.basket_button:hover {
+.basket-button:hover {
   transition: all 0.3s ease;
   box-shadow:
     0 0 5px #ff9900,
@@ -25,7 +25,7 @@
   transform: scale(1);
 }
 
-.add_btn {
+.add-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +40,7 @@
   position: absolute;
 }
 
-.add_btn:hover {
+.add-btn:hover {
   color: #e76c1f;
   transition: all 0.3s ease;
   box-shadow:
@@ -65,14 +65,14 @@
   background-image: url('../assets/icons/delete_icon_press.svg');
 }
 
-.remove_btn {
+.remove-btn {
   border: none;
   font-size: 20px;
   background-color: #ffffff;
   cursor: pointer;
 }
 
-.remove_btn:hover {
+.remove-btn:hover {
   color: var(--clr-primary-bg);
 }
 
