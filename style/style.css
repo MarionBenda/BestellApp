@@ -135,7 +135,11 @@ header img {
 
 .menu-content {
   display: flex;
-  gap: 20px;
+  flex-wrap: nowrap; /* Verhindert das Umbrechen */
+  gap: 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: 40px;
   align-items: flex-start;
 }
 

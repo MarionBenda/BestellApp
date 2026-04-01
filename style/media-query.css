@@ -1,4 +1,4 @@
-@media (max-width: 2239px) {
+@media (max-width: 1920px) {
   :root {
     --clr-primary-bg: #e76c1f;
     --clr-secondary-bg: #ffffff;
@@ -58,7 +58,7 @@
   }
 }
 
-@media (min-width: 2240px) {
+@media (min-width: 1440px) {
   .basket-sidebar-trigger {
     display: none;
   }

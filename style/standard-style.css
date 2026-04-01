@@ -71,12 +71,10 @@ h3 {
 }
 
 .dishes {
-  padding: 30px 16px 40px;
-  max-width: 1440px;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0 auto;
-  flex: 1;
+  flex: 1; /* Nimmt den restlichen verfügbaren Platz ein */
+  max-width: 1000px; /* Begrenzt den Content, damit das Aside Platz hat */
+  padding: 30px 16px;
+  margin: 0; /* Margin auto entfernen, da menu-content zentriert */
 }
 
 .burger-card {
@@ -128,4 +126,15 @@ h3 {
 
 .mobile-nav {
   display: none;
+}
+
+aside {
+  width: 350px; /* Feste Breite für den Warenkorb */
+  position: sticky;
+  top: 20px;
+  background-color: var(--clr-secondary-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Verhindert, dass das Aside bei sehr kleinen Bildschirmen alles zerquetscht */
+  min-width: 300px;
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +25,7 @@
   <body onload="init()">
     <header class="header-main">
       <div class="header-content">
-        <img src="./assets/logos/main_logo.svg" alt="Hauptlogo der Seite" />
+        <img src="./assets/logos/main_logo.svg" alt="LieferLust Logo" />
         <img
           src="./assets/icons/menu_placeholder_icon.svg"
           alt="Icon für Menü"
@@ -156,7 +156,7 @@
         onclick="toggleBasket()"
       >
         <img src="./assets/icons/shopping_cart_icon_full.svg" alt="Warenkorb" />
-        <span class="basket-count-badge" class="basket-badge">0</span>
+        <span class="basket-count-badge basket-badge">0</span>
       </button>
       <div class="basket-overlay" onclick="toggleBasket()"></div>
       <aside id="main-basket" class="basket" aria-labelledby="basket-title">
@@ -188,36 +188,37 @@
           <span id="total_btn_price"></span>
         </button>
       </aside>
-
-      <dialog id="orderConfirmation" class="order-dialog">
-        <header class="header-dialog">
-          <button id="closeButton" onclick="closeDelivery()" class="close-btn">
-            <img src="./assets/icons/close-icon.svg" alt="Schließbutton" />
-          </button>
-        </header>
-        <div class="dialog-order-content">
-          <img
-            src="./assets/icons/delivery_icon.svg"
-            alt="Bestellung auf dem Weg"
-          />
-          <p class="dialog-order-content-first">Bestellung bestätigt!</p>
-          <p class="dialog-order-content-second">
-            Deine Bestellung ist auf dem Weg!
-          </p>
-        </div>
-      </dialog>
-
-      <footer class="footer">
-        <div class="footer-content">
-          <div class="copyright">
-            <img src="./assets/icons/copyright_icon.svg" alt="Logo Copyright" />
-            <p class="copyright-content">2025 LieferLust</p>
-          </div>
-          <a href="#">Impressum</a>
-          <a href="#">Cookie Preference</a>
-        </div>
-      </footer>
     </main>
+
+    <dialog id="orderConfirmation" class="order-dialog">
+      <header class="header-dialog">
+        <button id="closeButton" onclick="closeDelivery()" class="close-btn">
+          <img src="./assets/icons/close-icon.svg" alt="Schließbutton" />
+        </button>
+      </header>
+      <div class="dialog-order-content">
+        <img
+          src="./assets/icons/delivery_icon.svg"
+          alt="Bestellung auf dem Weg"
+        />
+        <p class="dialog-order-content-first">Bestellung bestätigt!</p>
+        <p class="dialog-order-content-second">
+          Deine Bestellung ist auf dem Weg!
+        </p>
+      </div>
+    </dialog>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="copyright">
+          <img src="./assets/icons/copyright_icon.svg" alt="Logo Copyright" />
+          <p class="copyright-content">2025 LieferLust</p>
+        </div>
+        <a href="#">Impressum</a>
+        <a href="#">Cookie Preference</a>
+      </div>
+    </footer>
+
     <nav class="mobile-nav" aria-label="Hauptnavigation mobil">
       <button aria-label="Zurück zum Anfang der Seite" class="nav-item">
         <a href="index.html" class="nav-item">
@@ -239,7 +240,7 @@
           src="./assets/icons/shopping_cart_icon_press.svg"
           alt="Warenkorb"
         />
-        <span class="basket-count-badge" class="basket-badge">0</span>
+        <span class="basket-count-badge basket-badge">0</span>
       </button>
     </nav>
   </body>
