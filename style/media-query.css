@@ -59,21 +59,27 @@
 }
 
 @media (min-width: 1440px) {
-  .basket-sidebar-trigger {
-    display: none;
-  }
-
+  .basket-sidebar-trigger,
   .basket-overlay {
     display: none;
   }
 
   .basket {
+    display: flex;
     position: fixed;
-    right: 0;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
+    width: 400px;
+    overflow-y: auto;
+
+    z-index: 1000;
     transition: none;
+    border-radius: 12px;
+  }
+
+  .order-section {
+    padding-right: 440px;
   }
 }
 

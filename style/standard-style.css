@@ -85,7 +85,7 @@ h3 {
 .dishes {
   flex: 1;
   max-width: 1000px;
-  padding: 30px 16px;
+  padding: 50px 16px;
   margin: 0;
 }
 
@@ -99,7 +99,6 @@ h3 {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 10px;
-
   overflow: hidden;
 }
 
@@ -119,11 +118,15 @@ h3 {
   gap: 3px;
   position: relative;
   padding-bottom: 40px;
+  align-items: center; /* Zentriert Überschrift, Beschreibung und Preis */
+  justify-content: center;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .menu_description {
@@ -148,4 +151,5 @@ aside {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   min-width: 300px;
+  overflow-y: auto;
 }
