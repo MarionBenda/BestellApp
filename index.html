@@ -220,16 +220,42 @@
     </footer>
 
     <nav class="mobile-nav" aria-label="Hauptnavigation mobil">
-      <button aria-label="Zurück zum Anfang der Seite" class="nav-item">
-        <a href="index.html" class="nav-item">
-          <img src="./assets/icons/home_icon.svg" alt="Home" />
-        </a>
-      </button>
+      <a
+        href="index.html"
+        class="nav-item"
+        aria-label="Zurück zum Anfang der Seite"
+      >
+        <img
+          class="default-icon"
+          src="./assets/icons/home_icon.svg"
+          alt="Home"
+        />
+        <img
+          class="hover-icon"
+          src="./assets/icons/home_icon_press.svg"
+          alt=""
+        />
+      </a>
+
       <button aria-label="Profil öffnen" class="nav-item">
-        <img src="./assets/icons/profile_icon.svg" alt="Profil" />
+        <img
+          class="default-icon"
+          src="./assets/icons/profile_icon.svg"
+          alt="Profil"
+        />
+        <img class="hover-icon" src="./assets/icons/profile_press.svg" alt="" />
       </button>
       <button aria-label="Speisekarte" class="nav-item">
-        <img src="./assets/icons/takeout_dining_2.svg" alt="Karte" />
+        <img
+          class="default-icon"
+          src="./assets/icons/takeout_dining_2.svg"
+          alt="Karte"
+        />
+        <img
+          class="hover-icon"
+          src="./assets/icons/takeout_dining_icon_press.svg"
+          alt=""
+        />
       </button>
       <button
         aria-label="Warenkorb öffnen"
@@ -237,6 +263,12 @@
         onclick="toggleBasket()"
       >
         <img
+          class="default-icon"
+          src="./assets/icons/shopping_cart_icon.svg"
+          alt=""
+        />
+        <img
+          class="hover-icon"
           src="./assets/icons/shopping_cart_icon_press.svg"
           alt="Warenkorb"
         />

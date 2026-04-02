@@ -70,11 +70,23 @@ h3 {
   transform: scale(1);
 }
 
+.nav-item .hover-icon {
+  display: none;
+}
+
+.nav-item:hover .default-icon {
+  display: none;
+}
+
+.nav-item:hover .hover-icon {
+  display: block;
+}
+
 .dishes {
-  flex: 1; /* Nimmt den restlichen verfügbaren Platz ein */
-  max-width: 1000px; /* Begrenzt den Content, damit das Aside Platz hat */
+  flex: 1;
+  max-width: 1000px;
   padding: 30px 16px;
-  margin: 0; /* Margin auto entfernen, da menu-content zentriert */
+  margin: 0;
 }
 
 .burger-card {
@@ -129,12 +141,11 @@ h3 {
 }
 
 aside {
-  width: 350px; /* Feste Breite für den Warenkorb */
+  width: 350px;
   position: sticky;
   top: 20px;
   background-color: var(--clr-secondary-bg);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* Verhindert, dass das Aside bei sehr kleinen Bildschirmen alles zerquetscht */
   min-width: 300px;
 }

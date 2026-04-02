@@ -135,7 +135,7 @@ header img {
 
 .menu-content {
   display: flex;
-  flex-wrap: nowrap; /* Verhindert das Umbrechen */
+  flex-wrap: nowrap;
   gap: 40px;
   max-width: 1440px;
   margin: 0 auto;
@@ -156,20 +156,6 @@ header img {
   align-items: center;
   padding-block: clamp(1rem, 2vi, 2rem);
   padding-inline: 20px;
-}
-
-.copyright {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 0;
-}
-
-.copyright-content {
-  margin: 0;
-  font-size: inherit;
-  display: flex;
-  align-items: center;
 }
 
 .footer-content {
@@ -208,4 +194,18 @@ footer a:hover {
     0 0 5px #ff6600,
     0 0 10px #ff6600;
   transform: translateY(-2px);
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
+.copyright-content {
+  margin: 0;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
 }

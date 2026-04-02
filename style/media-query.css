@@ -87,6 +87,12 @@
     transition: transform 0.3s ease-in-out;
   }
 
+  .empty-msg {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
   .basket.show {
     transform: translateY(-50%) translateX(0);
   }
@@ -193,6 +199,8 @@
 
   .empty-msg {
     font-size: 16px;
+    display: flex;
+    justify-content: center;
   }
 
   .basket-item-name,

@@ -40,3 +40,7 @@ function getTotalSectionTemplate(subtotal, fee, isDelivery) {
       <div class="total-row total-final"><h3>Gesamt</h3><h3>${(subtotal + fee).toFixed(2).replace('.', ',')} €</h3></div>
     </div>`;
 }
+
+function getEmptyBasketTemplate() {
+  return `<p class="empty-msg">Dein Warenkorb ist noch leer.</p>`;
+}
