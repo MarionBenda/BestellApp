@@ -193,6 +193,14 @@
   justify-content: center;
 }
 
+.dialog-order-content-first {
+  font-size: 24px;
+}
+
+.dialog-order-content-second {
+  font-size: 18px;
+}
+
 @media (max-width: 400px) {
   .basket.show {
     transform: translateY(-50%) translateX(0);
@@ -218,7 +226,25 @@
     font-size: 24px;
   }
 
+  .dialog-order-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .dialog-order-content-first,
+  .dialog-order-content-second {
+    margin: 0;
+  }
+
   .dialog-order-content-second {
     font-size: 18px;
+  }
+
+  .dialog-order-content {
+    display: flex;
   }
 }

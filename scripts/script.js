@@ -93,7 +93,7 @@ function openDelivery() {
   if (overlay) overlay.style.display = 'none';
   if (dialog) {
     dialog.showModal();
-    basket = [];
+    basket.length = 0;
     updateBasket();
     setTimeout(() => dialog.close(), 3000);
   }
