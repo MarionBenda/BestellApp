@@ -117,3 +117,10 @@ function toggleBasket() {
   const overlay = document.getElementById('basket-overlay');
   if (overlay) overlay.style.display = isOpen && isMobile ? 'block' : 'none';
 }
+
+function closeDelivery() {
+  const dialog = document.getElementById('orderConfirmation');
+  if (dialog) {
+    dialog.close();
+  }
+}
