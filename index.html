@@ -74,120 +74,129 @@
           <a href="#desserts">Desserts</a>
         </nav>
       </section>
-      <section class="order-section">
-        <div class="food-content-headline"></div>
-        <header class="section-header container container-mobile">
-          <img
-            class="header-icon"
-            src="./assets/icons/burger_icon.svg"
-            alt="Burger Icon"
-          />
 
-          <h2 class="section-headline">Burger</h2>
-        </header>
-        <div class="menu-content">
-          <div class="dishes" id="burger"></div>
+      <div class="main-layout-wrapper">
+        <div class="menu-sections-container">
+          <section class="order-section">
+            <div class="food-content-headline"></div>
+            <header class="section-header container container-mobile">
+              <img
+                class="header-icon"
+                src="./assets/icons/burger_icon.svg"
+                alt="Burger Icon"
+              />
+
+              <h2 class="section-headline">Burger</h2>
+            </header>
+            <div class="menu-content">
+              <div class="dishes" id="burger"></div>
+            </div>
+          </section>
+          <section class="order-section">
+            <div class="food-content-headline"></div>
+            <header class="section-header container container-mobile">
+              <img
+                class="header-icon"
+                src="./assets/logos/pizza_logo.svg"
+                alt="Pizza Icon"
+              />
+
+              <h2 class="section-headline">Pizza</h2>
+            </header>
+            <div class="menu-content">
+              <div class="dishes" id="pizza"></div>
+            </div>
+          </section>
+          <section class="order-section">
+            <div class="food-content-headline"></div>
+            <header class="section-header container container-mobile">
+              <img
+                class="header-icon"
+                src="./assets/logos/salad_logo.svg"
+                alt="Salat Icon"
+              />
+
+              <h2 class="section-headline">Salate</h2>
+            </header>
+            <div class="menu-content">
+              <div class="dishes" id="salad"></div>
+            </div>
+          </section>
+          <section class="order-section">
+            <div class="food-content-headline"></div>
+            <header class="section-header container container-mobile">
+              <img
+                class="header-icon"
+                src="./assets/logos/potato-icon.png"
+                alt="Beilagen Icon"
+              />
+
+              <h2 class="section-headline">Beilagen</h2>
+            </header>
+            <div class="menu-content">
+              <div class="dishes" id="sideDishes"></div>
+            </div>
+          </section>
+          <section class="order-section">
+            <div class="food-content-headline"></div>
+            <header class="section-header container container-mobile">
+              <img
+                class="header-icon"
+                src="./assets/logos/macarons-color-icon.png"
+                alt="Dessert Icon"
+              />
+
+              <h2 class="section-headline">Desserts</h2>
+            </header>
+            <div class="menu-content">
+              <div class="dishes" id="desserts"></div>
+            </div>
+          </section>
+
+          <button
+            class="basket-sidebar-trigger"
+            class="basket-count-badge"
+            onclick="toggleBasket()"
+          >
+            <img
+              src="./assets/icons/shopping_cart_icon_full.svg"
+              alt="Warenkorb"
+            />
+            <span class="basket-count-badge basket-badge">0</span>
+          </button>
+
+          <div class="basket-overlay" onclick="toggleBasket()"></div>
         </div>
-      </section>
-      <section class="order-section">
-        <div class="food-content-headline"></div>
-        <header class="section-header container container-mobile">
-          <img
-            class="header-icon"
-            src="./assets/logos/pizza_logo.svg"
-            alt="Pizza Icon"
-          />
-
-          <h2 class="section-headline">Pizza</h2>
-        </header>
-        <div class="menu-content">
-          <div class="dishes" id="pizza"></div>
-        </div>
-      </section>
-      <section class="order-section">
-        <div class="food-content-headline"></div>
-        <header class="section-header container container-mobile">
-          <img
-            class="header-icon"
-            src="./assets/logos/salad_logo.svg"
-            alt="Salat Icon"
-          />
-
-          <h2 class="section-headline">Salate</h2>
-        </header>
-        <div class="menu-content">
-          <div class="dishes" id="salad"></div>
-        </div>
-      </section>
-      <section class="order-section">
-        <div class="food-content-headline"></div>
-        <header class="section-header container container-mobile">
-          <img
-            class="header-icon"
-            src="./assets/logos/potato-icon.png"
-            alt="Beilagen Icon"
-          />
-
-          <h2 class="section-headline">Beilagen</h2>
-        </header>
-        <div class="menu-content">
-          <div class="dishes" id="sideDishes"></div>
-        </div>
-      </section>
-      <section class="order-section">
-        <div class="food-content-headline"></div>
-        <header class="section-header container container-mobile">
-          <img
-            class="header-icon"
-            src="./assets/logos/macarons-color-icon.png"
-            alt="Dessert Icon"
-          />
-
-          <h2 class="section-headline">Desserts</h2>
-        </header>
-        <div class="menu-content">
-          <div class="dishes" id="desserts"></div>
-        </div>
-      </section>
-
-      <button
-        class="basket-sidebar-trigger"
-        class="basket-count-badge"
-        onclick="toggleBasket()"
-      >
-        <img src="./assets/icons/shopping_cart_icon_full.svg" alt="Warenkorb" />
-        <span class="basket-count-badge basket-badge">0</span>
-      </button>
-      <div class="basket-overlay" onclick="toggleBasket()"></div>
-      <aside id="main-basket" class="basket" aria-labelledby="basket-title">
-        <div class="basket-header-row">
-          <div class="method-switch">
-            <button
-              id="btn-delivery"
-              class="method-btn active"
-              onclick="setDelivery(true)"
-            >
-              Lieferung
-            </button>
-            <button
-              id="btn-pickup"
-              class="method-btn"
-              onclick="setDelivery(false)"
-            >
-              Abholung
-            </button>
+        <aside id="main-basket" class="basket" aria-labelledby="basket-title">
+          <div class="basket-header-row">
+            <div class="method-switch">
+              <button
+                id="btn-delivery"
+                class="method-btn active"
+                onclick="setDelivery(true)"
+              >
+                Lieferung
+              </button>
+              <button
+                id="btn-pickup"
+                class="method-btn"
+                onclick="setDelivery(false)"
+              >
+                Abholung
+              </button>
+            </div>
+            <h2>Warenkorb</h2>
           </div>
-          <h2>Warenkorb</h2>
-        </div>
 
-        <div id="basket_content"></div>
-        <div id="basket_items" class="basket-content"></div>
-        <div id="basket_total" class="basket-total"></div>
-        <button class="basket-button" onclick="openDelivery()">
-          <span>Buy Now</span>
-          <span id="total_btn_price"></span>
-        </button>
-      </aside>
+          <div id="basket_content"></div>
+          <div id="basket_items" class="basket-content"></div>
+          <div id="basket_total" class="basket-total"></div>
+          <button class="basket-button" onclick="openDelivery()">
+            <span>Buy Now</span>
+            <span id="total_btn_price"></span>
+          </button>
+        </aside>
+      </div>
     </main>
 
     <dialog id="orderConfirmation" class="order-dialog">

@@ -139,7 +139,7 @@ header img {
   gap: 40px;
   max-width: 1440px;
   margin: 0 auto;
-  padding-inline: 40px;
+  padding-inline: 10px;
   align-items: flex-start;
 }
 

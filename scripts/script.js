@@ -1,7 +1,7 @@
 const RATING = 4.5;
 const COUNT = 215;
 const DELIVERY_FEE = 4.99;
-const basket = [];
+const BASKET = [];
 
 let isDelivery = true;
 
@@ -20,55 +20,62 @@ function renderCategory(category) {
 }
 
 function addToBasket(name, price) {
-  const item = basket.find((i) => i.name === name);
-  item ? item.amount++ : basket.push({ name, price, amount: 1 });
+  const item = BASKET.find((i) => i.name === name);
+  item ? item.amount++ : BASKET.push({ name, price, amount: 1 });
   updateBasket();
 }
 
 function decreaseAmount(index) {
-  basket[index].amount > 1 ? basket[index].amount-- : basket.splice(index, 1);
+  BASKET[index].amount > 1 ? BASKET[index].amount-- : BASKET.splice(index, 1);
   updateBasket();
 }
 
 function removeFromBasket(index) {
-  basket.splice(index, 1);
+  BASKET.splice(index, 1);
   updateBasket();
 }
 
 function updateBasket() {
+  const totals = calculateTotals();
+  updateBasketUI(totals);
+
   const listContainer = document.getElementById('basket_items');
-  const totalContainer = document.getElementById('basket_total');
-  const btnPriceContainer = document.getElementById('total_btn_price');
+  listContainer.innerHTML = BASKET.map((item, i) =>
+    getBasketItemTemplate(item, i),
+  ).join('');
 
-  const allBadges = document.querySelectorAll('.basket-badge');
-
-  const subTotal = basket.reduce(
-    (sum, item) => sum + item.price * item.amount,
-    0,
+  renderTotalSection(
+    document.getElementById('basket_total'),
+    totals.sub,
+    totals.fee,
   );
-  const totalCount = basket.reduce((sum, item) => sum + item.amount, 0);
-  const fee = isDelivery && basket.length ? DELIVERY_FEE : 0;
-  const total = subTotal + fee;
 
-  allBadges.forEach((badge) => {
-    badge.textContent = totalCount;
-    badge.style.display = totalCount > 0 ? 'flex' : 'none';
-  });
-
-  listContainer.innerHTML = basket
-    .map((item, i) => getBasketItemTemplate(item, i))
-    .join('');
-
-  renderTotalSection(totalContainer, subTotal, fee);
-
-  if (btnPriceContainer) {
-    btnPriceContainer.textContent =
-      basket.length > 0 ? `(${total.toFixed(2).replace('.', ',')} €)` : '';
+  const btnPrice = document.getElementById('total_btn_price');
+  if (btnPrice) {
+    btnPrice.textContent =
+      BASKET.length > 0
+        ? `(${totals.total.toFixed(2).replace('.', ',')} €)`
+        : '';
   }
 }
 
+function calculateTotals() {
+  const sub = BASKET.reduce((sum, item) => sum + item.price * item.amount, 0);
+  const count = BASKET.reduce((sum, item) => sum + item.amount, 0);
+  const fee = isDelivery && BASKET.length ? DELIVERY_FEE : 0;
+  return { sub, count, fee, total: sub + fee };
+}
+
+function updateBasketUI(totals) {
+  const allBadges = document.querySelectorAll('.basket-badge');
+  allBadges.forEach((badge) => {
+    badge.textContent = totals.count;
+    badge.style.display = totals.count > 0 ? 'flex' : 'none';
+  });
+}
+
 function renderTotalSection(element, subtotal, fee) {
-  if (!basket.length) {
+  if (!BASKET.length) {
     element.innerHTML = getEmptyBasketTemplate();
     return;
   }
@@ -85,33 +92,28 @@ function setDelivery(status) {
 }
 
 function openDelivery() {
-  const basketEL = document.getElementById('main-basket');
-  const overlay = document.getElementById('basket-overlay');
   const dialog = document.getElementById('orderConfirmation');
-  if (!basket.length) return alert('Dein Warenkorb ist leer!');
-  if (basketEL) basketEL.classList.remove('show');
-  if (overlay) overlay.style.display = 'none';
-  if (dialog) {
+  if (BASKET.length > 0 && dialog) {
+    toggleBasketDisplay(false);
     dialog.showModal();
-    basket.length = 0;
+    BASKET.length = 0;
     updateBasket();
     setTimeout(() => dialog.close(), 3000);
   }
 }
 
-function closeDelivery() {
-  document.getElementById('orderConfirmation').close();
+function toggleBasketDisplay(show) {
+  const basketEL = document.getElementById('main-basket');
+  const overlay = document.getElementById('basket-overlay');
+  if (basketEL) basketEL.classList.toggle('show', show);
+  if (overlay) overlay.style.display = show ? 'block' : 'none';
 }
 
 function toggleBasket() {
-  const basketEL = document.getElementById('main-basket'),
-    overlay = document.getElementById('basket-overlay');
-
-  basketEL.classList.toggle('show');
-
-  if (overlay) {
-    overlay.style.display = basketEL.classList.contains('show')
-      ? 'block'
-      : 'none';
-  }
+  const basketEL = document.getElementById('main-basket');
+  const isOpen = basketEL.classList.toggle('show');
+  const isMobile = window.innerWidth < 1140;
+  document.body.style.overflow = isOpen && isMobile ? 'hidden' : '';
+  const overlay = document.getElementById('basket-overlay');
+  if (overlay) overlay.style.display = isOpen && isMobile ? 'block' : 'none';
 }

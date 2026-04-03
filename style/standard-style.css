@@ -118,7 +118,7 @@ h3 {
   gap: 3px;
   position: relative;
   padding-bottom: 40px;
-  align-items: center; /* Zentriert Überschrift, Beschreibung und Preis */
+  align-items: center;
   justify-content: center;
 }
 
@@ -146,10 +146,13 @@ h3 {
 aside {
   width: 350px;
   position: sticky;
-  top: 20px;
+  top: 500px;
   background-color: var(--clr-secondary-bg);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   min-width: 300px;
+  height: fit-content;
+  max-height: 80vh;
   overflow-y: auto;
+  margin-left: 20px;
 }
