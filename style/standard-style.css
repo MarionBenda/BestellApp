@@ -14,6 +14,31 @@
 
 html {
   scroll-behavior: smooth;
+  /* scrollbar-gutter: stable; */
+  background-color: var(--clr-secondary-bg);
+}
+
+html.dialog-open {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+body.dialog-open {
+  overflow: hidden;
+  width: 100%;
+}
+
+body.dialog-open::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Nutze 100vw um wirklich ALLES (auch den Scrollbar-Platz) abzudunkeln */
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
 }
 
 body {
@@ -22,7 +47,24 @@ body {
   color: var(--clr-primary-txt);
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
+
+.media-basket {
+  display: none;
+  flex-direction: column;
+  background-color: var(--clr-primary-txt);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  z-index: 1000;
+  position: fixed;
+  overflow-y: auto;
+  pointer-events: auto;
+
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -31,11 +73,11 @@ a {
 p {
   font-size: 24px;
   font-weight: bold;
+  padding: 0 5px;
 }
 .order-section {
   background-color: var(--clr-secondary-bg);
   flex: 1;
-  position: relative;
   width: 100%;
 }
 
@@ -52,10 +94,10 @@ h3 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(10px, 2vi, 20px);
+  gap: 10px;
   font-size: 20px;
   width: 100%;
-  padding: clamp(20px, 5vi, 50px) 15px clamp(15px, 3vi, 30px);
+  padding: 10px 0;
 }
 
 .sub-nav a:hover {
@@ -68,6 +110,11 @@ h3 {
     0 0 10px #ff6600;
   border-radius: 12px;
   transform: scale(1);
+}
+
+.mobile-nav {
+  z-index: 1001;
+  position: fixed; /* Falls sie nicht schon fixiert ist */
 }
 
 .nav-item .hover-icon {
@@ -143,16 +190,6 @@ h3 {
   display: none;
 }
 
-aside {
-  width: 350px;
-  position: sticky;
-  top: 500px;
-  background-color: var(--clr-secondary-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  min-width: 300px;
-  height: fit-content;
-  max-height: 80vh;
-  overflow-y: auto;
-  margin-left: 20px;
+.main-layout-wrapper {
+  display: flex;
 }

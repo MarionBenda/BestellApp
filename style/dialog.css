@@ -20,11 +20,6 @@
   transform: translate(-50%, -50%);
 }
 
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-}
-
 .header-dialog {
   display: flex;
   justify-content: flex-end;

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./style/basket.css" />
     <link rel="stylesheet" href="./style/dialog.css" />
     <link rel="stylesheet" href="./style/media-query.css" />
+    <link rel="stylesheet" href="./style/dialog-basket.css" />
     <script src="./scripts/db.js"></script>
 
     <script src="./scripts/template.js"></script>
@@ -32,49 +33,45 @@
         />
       </div>
     </header>
-    <main>
-      <section>
-        <div class="main-img-container">
-          <img
-            class="main-img"
-            src="./assets/img/header_img.jpg"
-            alt=""
-            aria-hidden="true"
-          />
-          <img
-            class="main-img-logo"
-            src="./assets/logos/logo_burger.svg"
-            alt="Logo Burger"
-          />
-        </div>
-        <div class="main-content">
-          <div class="slogan">
-            <h1 class="brand-name">
-              <span class="highlight">Burger</span>House
-            </h1>
-            <div class="rating-container">
-              <img
-                src="./assets/icons/star_icon.svg"
-                alt="Stern Bewertungs Icon"
-              />
-              <span class="rating-value" id="ratingValue"></span>
-              <span class="rating-count" id="ratingCount">(215)</span>
-            </div>
+
+    <section>
+      <div class="main-img-container">
+        <img
+          class="main-img"
+          src="./assets/img/header_img.jpg"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="main-img-logo"
+          src="./assets/logos/logo_burger.svg"
+          alt="Logo Burger"
+        />
+      </div>
+      <div class="main-content">
+        <div class="slogan">
+          <h1 class="brand-name"><span class="highlight">Burger</span>House</h1>
+          <div class="rating-container">
+            <img
+              src="./assets/icons/star_icon.svg"
+              alt="Stern Bewertungs Icon"
+            />
+            <span class="rating-value" id="ratingValue"></span>
+            <span class="rating-count" id="ratingCount">(215)</span>
           </div>
-          <p>
-            The best of Burgers, Pizza, and Greens, all in one greate place.
-          </p>
         </div>
+        <p>The best of Burgers, Pizza, and Greens, all in one greate place.</p>
+      </div>
 
-        <nav class="sub-nav" aria-label="Kategorieauswahl">
-          <a href="#burger">Burger</a>
-          <a href="#pizza">Pizza</a>
-          <a href="#salad">Salate</a>
-          <a href="#sideDishes">Beilagen</a>
-          <a href="#desserts">Desserts</a>
-        </nav>
-      </section>
-
+      <nav class="sub-nav" aria-label="Kategorieauswahl">
+        <a href="#burger">Burger</a>
+        <a href="#pizza">Pizza</a>
+        <a href="#salad">Salate</a>
+        <a href="#sideDishes">Beilagen</a>
+        <a href="#desserts">Desserts</a>
+      </nav>
+    </section>
+    <main>
       <div class="main-layout-wrapper">
         <div class="menu-sections-container">
           <section class="order-section">
@@ -153,18 +150,6 @@
             </div>
           </section>
 
-          <button
-            class="basket-sidebar-trigger"
-            class="basket-count-badge"
-            onclick="toggleBasket()"
-          >
-            <img
-              src="./assets/icons/shopping_cart_icon_full.svg"
-              alt="Warenkorb"
-            />
-            <span class="basket-count-badge basket-badge">0</span>
-          </button>
-
           <div class="basket-overlay" onclick="toggleBasket()"></div>
         </div>
         <aside id="main-basket" class="basket" aria-labelledby="basket-title">
@@ -196,8 +181,46 @@
             <span id="total_btn_price"></span>
           </button>
         </aside>
-      </div>
+      <!-- </div> -->
     </main>
+
+    <dialog
+      id="media-basket"
+      class="media-basket"
+      aria-labelledby="basket-title"
+      onmousedown="
+        event.target === this &&
+          (this.close(), (document.body.style.overflow = ''))
+      "
+    >
+      <div class="basket-header-row">
+        <div class="method-switch">
+          <button
+            id="btn-delivery"
+            class="method-btn active"
+            onclick="setDelivery(true)"
+          >
+            Lieferung
+          </button>
+          <button
+            id="btn-pickup"
+            class="method-btn"
+            onclick="setDelivery(false)"
+          >
+            Abholung
+          </button>
+        </div>
+        <h2>Warenkorb</h2>
+      </div>
+
+      <div id="basket_content"></div>
+      <div id="basket_items" class="basket-content"></div>
+      <div id="basket_total" class="basket-total"></div>
+      <button class="basket-button" onclick="openDelivery()">
+        <span>Buy Now</span>
+        <span id="total_btn_price"></span>
+      </button>
+    </dialog>
 
     <dialog id="orderConfirmation" class="order-dialog">
       <header class="header-dialog">

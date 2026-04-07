@@ -57,7 +57,6 @@ header img {
 }
 
 .main-content {
-  padding: clamp(40px, 10vi, 80px) 20px 20px 20px;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -69,8 +68,6 @@ header img {
   align-items: center;
   background-color: var(--clr-quaternary-bg);
   border-radius: 10px;
-  padding: 2px clamp(4px, 1vi, 10px);
-  gap: clamp(3px, 0.5vi, 5px);
 }
 
 .rating-value {
@@ -101,7 +98,7 @@ header img {
   text-align: center;
   gap: clamp(5px, 1.5vi, 10px);
   width: 100%;
-  padding-inline: 15px;
+  padding-top: 50px;
 }
 
 .food-content-headline {
@@ -123,7 +120,7 @@ header img {
 .header-icon {
   position: absolute;
   bottom: 0;
-  height: clamp(50px, 8vi, 90px);
+  /* height: clamp(50px, 8vi, 90px); */
   width: auto;
 }
 
@@ -154,7 +151,7 @@ header img {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: clamp(1rem, 2vi, 2rem);
+  /* padding-block: clamp(1rem, 2vi, 2rem); */
   padding-inline: 20px;
 }
 
@@ -170,11 +167,11 @@ header img {
   text-align: center;
   align-items: center;
   justify-content: center;
-  gap: clamp(15px, 3vi, 30px);
+  /* gap: clamp(15px, 3vi, 30px); */
 }
 
 .footer img {
-  height: clamp(16px, 2.5vi, 20px);
+  /* height: clamp(16px, 2.5vi, 20px); */
   width: auto;
 }
 

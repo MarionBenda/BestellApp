@@ -109,18 +109,30 @@ function toggleBasketDisplay(show) {
   if (overlay) overlay.style.display = show ? 'block' : 'none';
 }
 
-function toggleBasket() {
-  const basketEL = document.getElementById('main-basket');
-  const isOpen = basketEL.classList.toggle('show');
-  const isMobile = window.innerWidth < 1140;
-  document.body.style.overflow = isOpen && isMobile ? 'hidden' : '';
-  const overlay = document.getElementById('basket-overlay');
-  if (overlay) overlay.style.display = isOpen && isMobile ? 'block' : 'none';
-}
-
 function closeDelivery() {
   const dialog = document.getElementById('orderConfirmation');
   if (dialog) {
     dialog.close();
+  }
+}
+
+function toggleBasket() {
+  const dialog = document.getElementById('media-basket');
+  if (!dialog) return;
+
+  const isMobile = window.innerWidth <= 1000;
+
+  if (isMobile) {
+    if (dialog.hasAttribute('open')) {
+      dialog.close();
+      // KLASSE ENTFERNEN
+      document.documentElement.classList.remove('dialog-open');
+      document.body.classList.remove('dialog-open');
+    } else {
+      dialog.show();
+      // KLASSE HINZUFÜGEN
+      document.documentElement.classList.add('dialog-open');
+      document.body.classList.add('dialog-open');
+    }
   }
 }

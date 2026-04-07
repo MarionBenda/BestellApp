@@ -113,3 +113,8 @@
 .close-btn img {
   width: 16px;
 }
+
+.nav.item {
+  display: flex;
+  background-color: var(--clr-primary-txt);
+}
