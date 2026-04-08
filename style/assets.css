@@ -1,11 +1,3 @@
-:root {
-  --clr-primary-bg: #e76c1f;
-  --clr-secondary-bg: #ffffff;
-  --clr-teritiary-bg: #fdeadc;
-  --clr-quaternary-bg: #facaac;
-  --clr-primary-txt: #363534;
-}
-
 .basket-button {
   background-color: var(--clr-primary-bg);
   border-radius: 40px;

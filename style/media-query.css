@@ -1,21 +1,20 @@
-:root {
+/* :root {
   --clr-primary-bg: #e76c1f;
   --clr-secondary-bg: #ffffff;
   --clr-teritiary-bg: #fdeadc;
   --clr-quaternary-bg: #facaac;
   --clr-primary-txt: #363534;
-}
+} */
 
 @media (max-width: 1000px) {
   .media-basket {
     display: flex;
   }
+
   .basket {
     display: none;
   }
-}
 
-@media (max-width: 999px) {
   .mobile-nav {
     display: flex;
     position: fixed;
@@ -24,7 +23,7 @@
     justify-content: space-around;
     background-color: var(--clr-primary-txt);
     padding: 10px 0;
-    z-index: 10000;
+    z-index: 10001; /* Höherer Wert übernommen */
     border: none;
     border-radius: 12px 12px 0 0;
   }
@@ -32,57 +31,13 @@
   body.dialog-open {
     overflow: hidden;
   }
-
-  .mobile-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 10001; /* Höchster Index: über Overlay und über Dialog */
-    /* ... deine restlichen Styles ... */
-  }
 }
 
-/* 6. Overlay */
-/* body.dialog-open::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw; 
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 999;
-} */
-
-.default-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--clr-primary-txt);
-  border: none;
-  cursor: pointer;
-}
-
-.mobile-nav button.nav-item {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-item img {
-  width: 24px;
-  height: 24px;
-}
-
-@media (min-width: 401px) and (max-width: 999px) {
+@media (max-width: 1000px) and (min-width: 401px) {
   .media-basket[open] {
     width: 400px;
     height: 600px;
-    max-height: 80vh; /* Verhindert, dass er oben/unten anstößt */
+    max-height: 80vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

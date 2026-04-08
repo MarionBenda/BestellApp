@@ -14,7 +14,7 @@
 
 html {
   scroll-behavior: smooth;
-  /* scrollbar-gutter: stable; */
+  scrollbar-gutter: stable;
   background-color: var(--clr-secondary-bg);
 }
 
@@ -34,7 +34,6 @@ body.dialog-open::after {
   position: fixed;
   top: 0;
   left: 0;
-  /* Nutze 100vw um wirklich ALLES (auch den Scrollbar-Platz) abzudunkeln */
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
@@ -48,21 +47,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.media-basket {
-  display: none;
-  flex-direction: column;
-  background-color: var(--clr-primary-txt);
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  border: none;
-  z-index: 1000;
-  position: fixed;
-  overflow-y: auto;
-  pointer-events: auto;
-
-  overflow-y: auto;
-  max-height: 80vh;
 }
 
 a {
@@ -114,7 +98,7 @@ h3 {
 
 .mobile-nav {
   z-index: 1001;
-  position: fixed; /* Falls sie nicht schon fixiert ist */
+  position: fixed;
 }
 
 .nav-item .hover-icon {
@@ -192,4 +176,19 @@ h3 {
 
 .main-layout-wrapper {
   display: flex;
+}
+
+.mobile-nav button.nav-item {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item img {
+  width: 24px;
+  height: 24px;
 }

@@ -1,21 +1,22 @@
 .media-basket {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
   width: 400px;
-  height: 600px;
-  padding: 10px 10px;
-  flex-direction: column;
+  max-width: 90vw;
+  height: calc(100% - 80px);
+  max-height: 80vh;
   background-color: var(--clr-primary-txt);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   border: none;
-  /* margin-bottom: 60px; */
-  max-width: 1000px;
-  z-index: 1000;
-  bottom: 70px;
-  height: calc(100% - 80px);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: fixed;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  pointer-events: auto;
 }
 
 .media-basket:not([open]) {

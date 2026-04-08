@@ -38,25 +38,22 @@ function removeFromBasket(index) {
 function updateBasket() {
   const totals = calculateTotals();
   updateBasketUI(totals);
-
-  const listContainer = document.getElementById('basket_items');
-  listContainer.innerHTML = BASKET.map((item, i) =>
+  const itemsHTML = BASKET.map((item, i) =>
     getBasketItemTemplate(item, i),
   ).join('');
 
-  renderTotalSection(
-    document.getElementById('basket_total'),
-    totals.sub,
-    totals.fee,
-  );
+  ['', 'mobile_'].forEach((prefix) => {
+    const list = document.getElementById(`${prefix}basket_items`);
+    const total = document.getElementById(`${prefix}basket_total`);
+    if (list) list.innerHTML = itemsHTML;
+    if (total) renderTotalSection(total, totals.sub, totals.fee);
+  });
 
-  const btnPrice = document.getElementById('total_btn_price');
-  if (btnPrice) {
-    btnPrice.textContent =
-      BASKET.length > 0
-        ? `(${totals.total.toFixed(2).replace('.', ',')} €)`
-        : '';
-  }
+  const btn = document.getElementById('total_btn_price');
+  if (btn)
+    btn.textContent = BASKET.length
+      ? `(${totals.total.toFixed(2).replace('.', ',')} €)`
+      : '';
 }
 
 function calculateTotals() {
@@ -125,12 +122,10 @@ function toggleBasket() {
   if (isMobile) {
     if (dialog.hasAttribute('open')) {
       dialog.close();
-      // KLASSE ENTFERNEN
       document.documentElement.classList.remove('dialog-open');
       document.body.classList.remove('dialog-open');
     } else {
       dialog.show();
-      // KLASSE HINZUFÜGEN
       document.documentElement.classList.add('dialog-open');
       document.body.classList.add('dialog-open');
     }
