@@ -95,24 +95,29 @@ header img {
 
 .food-content-headline {
   height: 44px;
-  width: 100%;
   background-color: #e76c1f;
   position: absolute;
 }
 
 .section-header {
-  position: relative;
-  padding-left: 150px;
+  background-color: var(--clr-primary-bg);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  box-shadow: 0 0 0 100vmax var(--clr-primary-bg);
+  clip-path: inset(0 -100vmax 0 -100vmax);
+  margin-bottom: 20px;
 }
 
 .section-headline {
-  padding-left: 100px;
+  margin: 0;
 }
 
 .header-icon {
-  position: absolute;
   bottom: 0;
-  /* height: clamp(50px, 8vi, 90px); */
+  height: 40px;
+  width: 40px;
   width: auto;
 }
 
@@ -143,7 +148,6 @@ header img {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding-block: clamp(1rem, 2vi, 2rem); */
   padding-inline: 20px;
 }
 
@@ -159,11 +163,9 @@ header img {
   text-align: center;
   align-items: center;
   justify-content: center;
-  /* gap: clamp(15px, 3vi, 30px); */
 }
 
 .footer img {
-  /* height: clamp(16px, 2.5vi, 20px); */
   width: auto;
 }
 

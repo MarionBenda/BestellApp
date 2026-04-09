@@ -16,6 +16,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
   background-color: var(--clr-secondary-bg);
+  overflow-x: hidden;
 }
 
 html.dialog-open {
@@ -29,15 +30,8 @@ body.dialog-open {
   width: 100%;
 }
 
-body.dialog-open::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 999;
+.media-basket::backdrop {
+  background: transparent;
 }
 
 body {
@@ -47,6 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  /* overflow-x: hidden; */
 }
 
 a {
@@ -176,6 +171,13 @@ h3 {
 
 .main-layout-wrapper {
   display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  align-items: flex-start;
+  position: relative;
 }
 
 .mobile-nav button.nav-item {
@@ -191,4 +193,9 @@ h3 {
 .nav-item img {
   width: 24px;
   height: 24px;
+}
+
+.menu-sections-container {
+  flex: 1;
+  max-width: 1000px;
 }

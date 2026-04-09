@@ -106,7 +106,10 @@
   width: 16px;
 }
 
-.nav.item {
-  display: flex;
+.nav-item {
+  display: inline-flex;
   background-color: var(--clr-primary-txt);
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
